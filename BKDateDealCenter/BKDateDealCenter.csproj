@@ -1,0 +1,250 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{923B7934-78FE-4855-B372-66F313E7D3A2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BKDateDealCenter</RootNamespace>
+    <AssemblyName>BKDateDealCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44385</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="comm">
+      <HintPath>..\comm\bin\Debug\comm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Model, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxMain.aspx" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\style-100.css" />
+    <Content Include="css\style.css" />
+    <Content Include="img\aleftboxtbott.png" />
+    <Content Include="img\aleftboxtmidd.png" />
+    <Content Include="img\aleftboxttop.png" />
+    <Content Include="img\amiddboxtbott1.png" />
+    <Content Include="img\amiddboxtbott1副本.png" />
+    <Content Include="img\amiddboxtbott2.png" />
+    <Content Include="img\amiddboxttop.png" />
+    <Content Include="img\arightboxbott.png" />
+    <Content Include="img\arightboxtop.png" />
+    <Content Include="img\b-rbox2.png" />
+    <Content Include="img\bbox2.png" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\bg1.jpg" />
+    <Content Include="img\blue_rico.png" />
+    <Content Include="img\bnt.png" />
+    <Content Include="img\bntactive.png" />
+    <Content Include="img\camera.png" />
+    <Content Include="img\camera_l.png" />
+    <Content Include="img\errors.txt" />
+    <Content Include="img\hdbj.png" />
+    <Content Include="img\hdbjr.png" />
+    <Content Include="img\hdmap.png" />
+    <Content Include="img\hot.png" />
+    <Content Include="img\icondown.png" />
+    <Content Include="img\iconup.png" />
+    <Content Include="img\icosjx.png" />
+    <Content Include="img\img.png" />
+    <Content Include="img\left1box.png" />
+    <Content Include="img\leftb1.png" />
+    <Content Include="img\leftbox2.png" />
+    <Content Include="img\mapbg.png" />
+    <Content Include="img\mbox1.png" />
+    <Content Include="img\mbox2.png" />
+    <Content Include="img\midtop.png" />
+    <Content Include="img\pleft1bott.png" />
+    <Content Include="img\pleft1middb.png" />
+    <Content Include="img\pleft1middt.png" />
+    <Content Include="img\pleftbox2bott.png" />
+    <Content Include="img\pleftbox2mid.png" />
+    <Content Include="img\pleftbox2top.png" />
+    <Content Include="img\pmiddboxmidd.png" />
+    <Content Include="img\prightmidd.png" />
+    <Content Include="img\prighttop.png" />
+    <Content Include="img\puleftbott.png" />
+    <Content Include="img\puleftmidd.png" />
+    <Content Include="img\pulefttop.png" />
+    <Content Include="img\pumiddbott.png" />
+    <Content Include="img\pumiddtop1.png" />
+    <Content Include="img\pumiddtop2.png" />
+    <Content Include="img\purightbott.png" />
+    <Content Include="img\purightmidd.png" />
+    <Content Include="img\purighttop.png" />
+    <Content Include="img\rbox1.png" />
+    <Content Include="img\red_rico.png" />
+    <Content Include="img\ricon1.png" />
+    <Content Include="img\ricon2.png" />
+    <Content Include="img\time.png" />
+    <Content Include="Main.aspx" />
+    <Content Include="pages\analysis.html" />
+    <Content Include="pages\MachineStatus.html" />
+    <Content Include="Scripts\base.js" />
+    <Content Include="Scripts\bmap.min.js" />
+    <Content Include="Scripts\china.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\dataTool.min.js" />
+    <Content Include="Scripts\echarts.min-82.js" />
+    <Content Include="Scripts\echarts.min.js" />
+    <Content Include="Scripts\echarts.min33.js" />
+    <Content Include="Scripts\echarts0827.min.js" />
+    <Content Include="Scripts\jquery-1.5.2.min.js" />
+    <Content Include="Scripts\jquery-3.2.0.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\ligerAccordion.js" />
+    <Content Include="Scripts\ligerButton.js" />
+    <Content Include="Scripts\ligerCheckBox.js" />
+    <Content Include="Scripts\ligerComboBox.js" />
+    <Content Include="Scripts\ligerDateEditor.js" />
+    <Content Include="Scripts\ligerDialog.js" />
+    <Content Include="Scripts\ligerDrag.js" />
+    <Content Include="Scripts\ligerEasyTab.js" />
+    <Content Include="Scripts\ligerFilter.js" />
+    <Content Include="Scripts\ligerForm.js" />
+    <Content Include="Scripts\ligerGrid.js" />
+    <Content Include="Scripts\ligerGridLight.js" />
+    <Content Include="Scripts\ligerLayout.js" />
+    <Content Include="Scripts\ligerMenu.js" />
+    <Content Include="Scripts\ligerMenuBar.js" />
+    <Content Include="Scripts\ligerMessageBox.js" />
+    <Content Include="Scripts\ligerRadio.js" />
+    <Content Include="Scripts\ligerResizable.js" />
+    <Content Include="Scripts\ligerSpinner.js" />
+    <Content Include="Scripts\ligerTab.js" />
+    <Content Include="Scripts\ligerTextBox.js" />
+    <Content Include="Scripts\ligerTip.js" />
+    <Content Include="Scripts\ligerToolBar.js" />
+    <Content Include="Scripts\ligerTree.js" />
+    <Content Include="Scripts\ligerui-all.css" />
+    <Content Include="Scripts\ligerui-common.css" />
+    <Content Include="Scripts\ligerui-dialog.css" />
+    <Content Include="Scripts\ligerui-form.css" />
+    <Content Include="Scripts\ligerui-grid.css" />
+    <Content Include="Scripts\ligerui-layout.css" />
+    <Content Include="Scripts\ligerui-menu.css" />
+    <Content Include="Scripts\ligerui-tab.css" />
+    <Content Include="Scripts\ligerui-tree.css" />
+    <Content Include="Scripts\ligerWindow.js" />
+    <Content Include="Scripts\world.js" />
+    <Content Include="TextFile1.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxMain.aspx.cs">
+      <DependentUpon>AjaxMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxMain.aspx.designer.cs">
+      <DependentUpon>AjaxMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataDeal.cs" />
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58937</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44385/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
