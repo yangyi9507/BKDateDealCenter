@@ -53,7 +53,7 @@ namespace BKDateDealCenter
                 //页面展示的前台页面数据
                 string[] Arr = {"ID", "ORDER_NUM", "MODEL_TYPE", "STOCK_NUM", "STORAGE_NUM", "OUTBOUND_NUM", "SHORAGE_NUM", "PRODUCTION_NUM", "PLAN_NUM"};
 
-                string s = Common.GetJsonString(dt.Rows.Count, 1, dt, Arr);
+                string s = Common.GetJsonString(dt.Rows.Count,1, dt, Arr);
 
                 Response.Write(s);
             }
@@ -117,15 +117,17 @@ namespace BKDateDealCenter
                 string PLAN_NUM = Request.Params["PLAN_NUM"] == "" ? "0" : Request.Params["PLAN_NUM"];
 
 
-                DataModel model = new DataModel();
-                model.ORDER_NUM = ORDER_NUM;//订单号
-                model.MODEL_TYPE = MODEL_TYPE;//型号
-                model.STOCK_NUM = STOCK_NUM;//库存数
-                model.STORAGE_NUM = STORAGE_NUM;//当日入库数
-                model.OUTBOUND_NUM = OUTBOUND_NUM;//当日出库数
-                model.SHORAGE_NUM = SHORAGE_NUM;//目前缺货数
-                model.PRODUCTION_NUM = PRODUCTION_NUM;//在产数量
-                model.PLAN_NUM = PLAN_NUM;//在途计划
+                DataModel model = new DataModel
+                {
+                    ORDER_NUM = ORDER_NUM,//订单号
+                    MODEL_TYPE = MODEL_TYPE,//型号
+                    STOCK_NUM = STOCK_NUM,//库存数
+                    STORAGE_NUM = STORAGE_NUM,//当日入库数
+                    OUTBOUND_NUM = OUTBOUND_NUM,//当日出库数
+                    SHORAGE_NUM = SHORAGE_NUM,//目前缺货数
+                    PRODUCTION_NUM = PRODUCTION_NUM,//在产数量
+                    PLAN_NUM = PLAN_NUM//在途计划
+                };
 
                 //声明数据处理类,调用插入语句
                 DataDeal dataDeal = new DataDeal();
@@ -173,16 +175,18 @@ namespace BKDateDealCenter
                 string PLAN_NUM = Request.Params["PLAN_NUM"] == "" ? "0" : Request.Params["PLAN_NUM"];
 
 
-                DataModel model  = new DataModel();
-                model.ID = ID;//key
-                model.ORDER_NUM = ORDER_NUM;//订单号
-                model.MODEL_TYPE = MODEL_TYPE;//型号
-                model.STOCK_NUM = STOCK_NUM;//库存数
-                model.STORAGE_NUM = STORAGE_NUM;//当日入库数
-                model.OUTBOUND_NUM = OUTBOUND_NUM;//当日出库数
-                model.SHORAGE_NUM = SHORAGE_NUM;//目前缺货数
-                model.PRODUCTION_NUM = PRODUCTION_NUM;//在产数量
-                model.PLAN_NUM = PLAN_NUM;//在途计划
+                DataModel model = new DataModel
+                {
+                    ID = ID,//key
+                    ORDER_NUM = ORDER_NUM,//订单号
+                    MODEL_TYPE = MODEL_TYPE,//型号
+                    STOCK_NUM = STOCK_NUM,//库存数
+                    STORAGE_NUM = STORAGE_NUM,//当日入库数
+                    OUTBOUND_NUM = OUTBOUND_NUM,//当日出库数
+                    SHORAGE_NUM = SHORAGE_NUM,//目前缺货数
+                    PRODUCTION_NUM = PRODUCTION_NUM,//在产数量
+                    PLAN_NUM = PLAN_NUM//在途计划
+                };
 
                 //声明数据处理类,调用更新语句
                 DataDeal dataDeal = new DataDeal();

@@ -10,7 +10,7 @@ namespace BKDateDealCenter
     public class DataDeal
     {
         //连接串        
-        string connSting = ConfigurationManager.ConnectionStrings["SysConnectionString"].ConnectionString;
+        readonly string connSting = ConfigurationManager.ConnectionStrings["SysConnectionString"].ConnectionString;
 
         string cmdText = "";
 

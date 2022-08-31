@@ -17,7 +17,7 @@ namespace comm
         /// <param name="_dt">数据集</param>
         /// <param name="strField">要显示的字段名称</param>
         /// <returns></returns>
-        public static string GetJsonString(int iTotalCount, int iPageIndex, DataTable _dt, string[] strField)
+        public static string GetJsonString(int iTotalCount,int pageIndex, DataTable _dt, string[] strField)
         {
             try
             {

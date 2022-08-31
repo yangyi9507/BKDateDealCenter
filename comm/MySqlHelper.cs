@@ -121,14 +121,16 @@ namespace comm
             try
             {
                 PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataSet ds = new DataSet();
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter())
+                {
+                    adapter.SelectCommand = cmd;
+                    DataSet ds = new DataSet();
 
-                adapter.Fill(ds);
-                cmd.Parameters.Clear();
-                conn.Close();
-                return ds;
+                    adapter.Fill(ds);
+                    cmd.Parameters.Clear();
+                    conn.Close();
+                    return ds;
+                }
             }
             catch (Exception e)
             {
@@ -150,14 +152,16 @@ namespace comm
             try
             {
                 PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataTable ds = new DataTable();
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter())
+                {
+                    adapter.SelectCommand = cmd;
+                    DataTable ds = new DataTable();
 
-                adapter.Fill(ds);
-                cmd.Parameters.Clear();
-                conn.Close();
-                return ds;
+                    adapter.Fill(ds);
+                    cmd.Parameters.Clear();
+                    conn.Close();
+                    return ds;
+                }
             }
             catch (Exception e)
             {
