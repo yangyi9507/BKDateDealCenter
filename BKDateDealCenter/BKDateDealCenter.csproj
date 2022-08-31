@@ -76,6 +76,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\style-100.css" />
     <Content Include="css\style.css" />
+    <Content Include="file\20220806_yy_创建数据记录表.sql" />
     <Content Include="img\aleftboxtbott.png" />
     <Content Include="img\aleftboxtmidd.png" />
     <Content Include="img\aleftboxttop.png" />
@@ -183,7 +184,6 @@
     <Content Include="Scripts\ligerui-tree.css" />
     <Content Include="Scripts\ligerWindow.js" />
     <Content Include="Scripts\world.js" />
-    <Content Include="TextFile1.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

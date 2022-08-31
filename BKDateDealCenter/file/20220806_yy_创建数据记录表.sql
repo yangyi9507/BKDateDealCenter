@@ -1,11 +1,8 @@
-﻿
+
 --创建数据哭
 
 CREATE DATABASE IF NOT EXISTS test DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
-
-
---创建表结构
 
 /*
  Navicat Premium Data Transfer
