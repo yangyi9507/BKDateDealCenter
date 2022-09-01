@@ -69,7 +69,7 @@
                 checkbox: false,
                 rownumbers: true,
                 cssClass: 'l-grid-gray',
-                usePager: true,
+                usePager: false,
                 showTitle: true,                
                 heightDiff: -2,                
                 url: "AjaxMain.aspx?Action=GetData",
