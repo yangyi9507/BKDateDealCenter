@@ -77,6 +77,7 @@
     <Content Include="css\style-100.css" />
     <Content Include="css\style.css" />
     <Content Include="file\20220806_yy_创建数据记录表.sql" />
+    <Content Include="file\查询数据接口GetData.html" />
     <Content Include="img\aleftboxtbott.png" />
     <Content Include="img\aleftboxtmidd.png" />
     <Content Include="img\aleftboxttop.png" />
