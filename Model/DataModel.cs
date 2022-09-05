@@ -90,5 +90,31 @@ namespace Model
         }
         #endregion
 
+        #region 待产
+        private string flg_delivered;
+        public string FLG_DELIVERED
+        {
+            set { flg_delivered = value; }
+            get { return flg_delivered; }
+        }
+        #endregion
+
+        #region 完成
+        private string flg_finish;
+        public string FLG_FINISH
+        {
+            set { flg_finish = value; }
+            get { return flg_finish; }
+        }
+        #endregion
+
+        #region 紧急
+        private string flg_emergency;
+        public string FLG_EMERGENCY
+        {
+            set { flg_emergency = value; }
+            get { return flg_emergency; }
+        }
+        #endregion
     }
 }

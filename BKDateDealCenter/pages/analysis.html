@@ -472,7 +472,7 @@
                 {
                     type: 'value',
                     name: '',
-                    min: -50,
+                    min: -20,
                     max: 30,
                     interval: 10,
                     axisLine: {
@@ -541,7 +541,7 @@
                         }
                     },
                     yAxisIndex: 1,
-                    data: [10, -3, 20, -3.3, -0.2, 10.2, -17.8, 7, -8.2, 1.2, 7.3, -3.1, -17, 0, 5, 2.4, 24, 15.5, 28, -16.1, 0, -12.8, 7.5, -9.9, 6.4, -2, 7.7, 0, 6, 20, 2]
+                    data: [10, 8, 7.5, 10, 12, 11, 11.5, 13, 11.5, 10.4, 9.5, 10.3, 11,12, 12.4, 10.5, 11, 15.5, 13, 13.1, 10, 11.5, 7.5, 10, 9.5, 11.5, 12, 12.5, 14, 12, 12.5]
 
                 }
             ]
@@ -606,9 +606,9 @@
                 {
                     type: 'value',
                     name: '',
-                    min: 95,
+                    min: 80,
                     max: 100,
-                    interval: 1,
+                    interval: 4,
                     axisLine: {
                         lineStyle: {
                             color: 'rgba(255,255,255,.2)'
@@ -638,42 +638,6 @@
 </body>
 <script type="text/javascript">
 
-    //$(function () {
-    //    $.ajax({
-    //        url: 'AjaxMain.aspx?Action=GetData',//ajax的请求路径
-    //        type: 'get',//ajax发送请求的方式
-    //        dataType: 'json',
-    //        async: false,
-    //        success: function (data) {                
-    //            var RowsArr = data.Rows;
-    //            if (RowsArr.length > 0)
-    //            {
-    //                var str = "";
-    //                str += "<table style=\"padding-top:5%;\" id=\"t_body\">";
-    //                for (var i = 0; i < RowsArr.length; i++) {
-    //                    //RowsArr[i].ORDER_NUM 订单编号;  RowsArr[i].MODEL_TYPE  型号
-    //                    //RowsArr[i].STOCK_NUM 库存数;  RowsArr[i].STORAGE_NUM 当日入库数
-    //                    //RowsArr[i].OUTBOUND_NUM 当日出库数;  RowsArr[i].SHORAGE_NUM 目前缺货数
-    //                    //RowsArr[i].PRODUCTION_NUM 在产数量;  RowsArr[i].PLAN_NUM 在途计划                  
-    //                    str += "<tr>";
-    //                    str += "<td class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
-    //                    str += "<td class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
-    //                    str += "<td>" + RowsArr[i].STOCK_NUM + "</td>";
-    //                    str += "<td>" + RowsArr[i].STORAGE_NUM + "</td>";
-    //                    str += "<td>" + RowsArr[i].OUTBOUND_NUM + "</td>";
-    //                    str += "<td>" + RowsArr[i].SHORAGE_NUM + "</td>";
-    //                    str += "<td>" + RowsArr[i].PRODUCTION_NUM + "</td>";
-    //                    str += "<td>" + RowsArr[i].PLAN_NUM + "</td>";
-    //                    str += "</tr>";
-    //                }
-    //                str += "</table>";
-
-    //                document.getElementById("marquePic1").innerHTML = str;
-    //            }
-    //        }
-    //    });
-    //})
-
     //纵向滚动 需要设置div的高度
     var speed = 40;
     var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
@@ -698,16 +662,29 @@
                             //RowsArr[i].ORDER_NUM 订单编号;  RowsArr[i].MODEL_TYPE  型号
                             //RowsArr[i].STOCK_NUM 库存数;  RowsArr[i].STORAGE_NUM 当日入库数
                             //RowsArr[i].OUTBOUND_NUM 当日出库数;  RowsArr[i].SHORAGE_NUM 目前缺货数
-                            //RowsArr[i].PRODUCTION_NUM 在产数量;  RowsArr[i].PLAN_NUM 在途计划                  
+                            //RowsArr[i].PRODUCTION_NUM 在产数量;  RowsArr[i].PLAN_NUM 在途计划    
+                            //flg_delivered   是否待检标志  flg_finish  是否完成标志  flg_emergency  是否紧急标志
+
+                            var color = "White";
+                            if (RowsArr[i].flg_delivered == 1) {
+                                color = "orange";
+                            }
+                            if (RowsArr[i].flg_emergency == 1) {
+                                color = "red";                                
+                            }
+                            if (RowsArr[i].flg_finish == 1) {
+                                color = "green";                                
+                            }
+
                             str += "<tr>";
-                            str += "<td class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
-                            str += "<td class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
-                            str += "<td>" + RowsArr[i].STOCK_NUM + "</td>";
-                            str += "<td>" + RowsArr[i].STORAGE_NUM + "</td>";
-                            str += "<td>" + RowsArr[i].OUTBOUND_NUM + "</td>";
-                            str += "<td>" + RowsArr[i].SHORAGE_NUM + "</td>";
-                            str += "<td>" + RowsArr[i].PRODUCTION_NUM + "</td>";
-                            str += "<td>" + RowsArr[i].PLAN_NUM + "</td>";
+                            str += "<td style=\"color: " + color + ";\" class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
+                            str += "<td style=\"color: " + color + ";\"  class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
+                            str += "<td style=\"color: " + color +";\">" + RowsArr[i].STOCK_NUM + "</td>";
+                            str += "<td style=\"color: " + color +";\">" + RowsArr[i].STORAGE_NUM + "</td>";
+                            str += "<td style=\"color: " + color +";\">" + RowsArr[i].OUTBOUND_NUM + "</td>";
+                            str += "<td style=\"color: " + color +";\">" + RowsArr[i].SHORAGE_NUM + "</td>";
+                            str += "<td style=\"color: " + color +";\">" + RowsArr[i].PRODUCTION_NUM + "</td>";
+                            str += "<td style=\"color: " + color + ";\">" + RowsArr[i].PLAN_NUM + "</td>";
                             str += "</tr>";
                         }
                         str += "</table>";

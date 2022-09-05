@@ -14,7 +14,7 @@ namespace BKDateDealCenter
 
         string cmdText = "";
 
-        #region 插入语句 暂时不启用
+        #region 插入语句 
         public int Insert(Model.DataModel model) 
         {
             StringBuilder str = new StringBuilder();
@@ -44,7 +44,7 @@ namespace BKDateDealCenter
         }
         #endregion
 
-        #region 删除语句 暂时不启用
+        #region 删除语句 
         public int Delete(int ID)
         {
             StringBuilder str = new StringBuilder();
@@ -72,7 +72,6 @@ namespace BKDateDealCenter
         }
         #endregion
 
-
         #region 更新语句
         public int Update(Model.DataModel model)
         {
@@ -86,12 +85,85 @@ namespace BKDateDealCenter
             str.AppendLine("OUTBOUND_NUM='" + model.OUTBOUND_NUM + "', ");
             str.AppendLine("SHORAGE_NUM='" + model.SHORAGE_NUM + "', ");
             str.AppendLine("PRODUCTION_NUM='" + model.PRODUCTION_NUM + "',");
-            str.AppendLine("PLAN_NUM='" + model.PLAN_NUM + "' ");
+            str.AppendLine("PLAN_NUM='" + model.PLAN_NUM + "', ");
+            str.AppendLine("FLG_DELIVERED='" + model.FLG_DELIVERED + "', ");
+            str.AppendLine("FLG_FINISH='" + model.FLG_FINISH + "', ");
+            str.AppendLine("FLG_EMERGENCY='" + model.FLG_EMERGENCY + "' ");
             str.AppendLine("WHERE ID='" + model.ID + "';");
             cmdText = str.ToString();
 
             MySqlConnection conn = comm.MySqlHelper.GetConnection(connSting);
             int i  = comm.MySqlHelper.ExecuteNonQuery(conn, CommandType.Text, cmdText);
+            return i;
+        }
+        #endregion
+
+
+        #region 固定资产查询语句
+        public DataTable QCSelect()
+        {
+            StringBuilder str = new StringBuilder();
+
+            str.Append("select * from test.fixedassets ;");
+
+            cmdText = str.ToString();
+
+            DataTable dt = comm.MySqlHelper.GetDataTable(connSting, CommandType.Text, cmdText);
+            return dt;
+        }
+        #endregion
+
+        #region 删除固定资产语句 
+        public int QCDelete(int ID)
+        {
+            StringBuilder str = new StringBuilder();
+
+            str.AppendLine("DELETE FROM test.fixedassets ");
+            str.AppendLine("WHERE id='" + ID + "';");
+            cmdText = str.ToString();
+            MySqlConnection conn = comm.MySqlHelper.GetConnection(connSting);
+            int val = comm.MySqlHelper.ExecuteNonQuery(conn, CommandType.Text, cmdText);
+            return val;
+        }
+        #endregion
+
+        #region 插入固定资产语句 
+        public int QCInsert(Model.QCModel model)
+        {
+            StringBuilder str = new StringBuilder();
+            str.AppendLine("INSERT INTO test.fixedassets (");
+            str.AppendLine("QCNumber,");
+            str.AppendLine("Status,");
+            str.AppendLine("Type,");
+            str.AppendLine("class)");            
+            str.AppendLine("VALUES (");
+            str.AppendLine("'" + model.QCNumber + "',");
+            str.AppendLine("'" + model.Status + "',");
+            str.AppendLine("'" + model.Type + "',");
+            str.AppendLine("'" + model.Class + "')");           
+            cmdText = str.ToString();
+
+            MySqlConnection conn = comm.MySqlHelper.GetConnection(connSting);
+            int i = comm.MySqlHelper.ExecuteNonQuery(conn, CommandType.Text, cmdText);
+            return i;
+        }
+        #endregion
+
+        #region 更新固定资产语句
+        public int QCUpdate(Model.QCModel model)
+        {
+
+            StringBuilder str = new StringBuilder();
+            str.AppendLine("UPDATE test.DataDeal SET ");
+            str.AppendLine("QCNumber = '" + model.QCNumber + "', ");
+            str.AppendLine("Status='" + model.Status + "', ");
+            str.AppendLine("Type='" + model.Type + "', ");
+            str.AppendLine("Class='" + model.Class + "', ");
+            str.AppendLine("WHERE ID='" + model.ID + "';");
+            cmdText = str.ToString();
+
+            MySqlConnection conn = comm.MySqlHelper.GetConnection(connSting);
+            int i = comm.MySqlHelper.ExecuteNonQuery(conn, CommandType.Text, cmdText);
             return i;
         }
         #endregion

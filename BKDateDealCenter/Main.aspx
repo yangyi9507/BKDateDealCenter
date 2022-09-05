@@ -12,6 +12,7 @@
     <script src="../Scripts/ligerGrid.js" type="text/javascript"></script>
     <script src="../Scripts/ligerCheckBox.js" type="text/javascript"></script>
     <script src="../Scripts/ligerTextBox.js" type="text/javascript"></script>
+    <script src="../Scripts/ligerComboBox.js" type="text/javascript"></script>
     <style>
         input{
             outline-style: none ;
@@ -61,7 +62,49 @@
                     { display: '当日出库数', name: 'OUTBOUND_NUM', width: 100, editor: { type: 'string' }},
                     { display: '目前缺货数', name: 'SHORAGE_NUM', width: 100, editor: { type: 'string' }},
                     { display: '在产数量', name: 'PRODUCTION_NUM', width: 100, editor: { type: 'string' } },
-                    { display: '在途计划', name: 'PLAN_NUM', width: 100, editor: { type: 'string' } }
+                    { display: '在途计划', name: 'PLAN_NUM', width: 100, editor: { type: 'string' } },
+                    {
+                        display: '是否待检', name: 'flg_delivered', width: 100,
+                        editor: {
+                            type: 'select',
+                            data: [
+                                { name: '是', value: 1, selected: true },
+                                { name: '否', value: 0, selected: false }
+                            ],
+                            displayColumnName: 'name', valueColumnName: 'value'
+                        },
+                        render: function (row) {
+                            return row.flg_delivered == 1 ? '是' : '否';
+                        }
+                    },
+                    {
+                        display: '是否紧急', name: 'flg_emergency', width: 100,
+                        editor: {
+                            type: 'select',
+                            data: [
+                                { name: '是', value: 1, selected: true },
+                                { name: '否', value: 0, selected: false }
+                            ],
+                            displayColumnName: 'name', valueColumnName: 'value'
+                        },
+                        render: function (row) {
+                            return row.flg_emergency == 1 ? '是' : '否';
+                        }
+                    },
+                    {
+                        display: '是否完成', name: 'flg_finish', width: 100,
+                        editor: {
+                            type: 'select',
+                            data: [
+                                { name: '是', value: 1, selected: true },
+                                { name: '否', value: 0, selected: false }
+                            ],
+                            displayColumnName: 'name', valueColumnName: 'value'
+                        },
+                        render: function (row) {
+                            return row.flg_finish == 1 ? '是' : '否';
+                        }
+                    }
                 ],
                 enabledSort: true,
                 enabledEdit: true,
@@ -75,7 +118,23 @@
                 url: "AjaxMain.aspx?Action=GetData",
                 width: 1300,
                 height: 550,
-                onBeforeSubmitEdit: f_onBeforeSubmitEdit
+                onBeforeSubmitEdit: f_onBeforeSubmitEdit,
+                rowAttrRender: function (item, rowid) {
+                    //等级划分  待产-橙色   紧急-红色  完成-黄色
+                    var html = ' style="';
+
+                    if (item.flg_delivered == 1)
+                    {
+                        html = html + ' color:orange;';
+                    }
+                    if (item.flg_emergency == 1) {
+                        html = html + ' color:red;';
+                    }
+                    if (item.flg_finish == 1) {
+                        html = html + ' color:green;';
+                    }
+                    return html + '"';
+                }
             });
         //#endregion
         });
@@ -111,20 +170,29 @@
                 case "PLAN_NUM":
                     rowdom.record.PLAN_NUM = conValue;
                     break;
+                case "flg_delivered":
+                    rowdom.record.flg_delivered = conValue;
+                    break;
+                case "flg_finish":
+                    rowdom.record.flg_finish = conValue;
+                    break;
+                case "flg_emergency":
+                    rowdom.record.flg_emergency = conValue;
+                    break;
             }
 
             $.ajax({
                 cache: false,
                 async: false,
                 url: "AjaxMain.aspx?Action=UpdateData",
-                data: { ID: row.ID, ORDER_NUM: row.ORDER_NUM, MODEL_TYPE: row.MODEL_TYPE, STOCK_NUM: row.STOCK_NUM, STORAGE_NUM: row.STORAGE_NUM, OUTBOUND_NUM: row.OUTBOUND_NUM, SHORAGE_NUM: row.SHORAGE_NUM, PRODUCTION_NUM: row.PRODUCTION_NUM, PLAN_NUM:row.PLAN_NUM },
+                data: { ID: row.ID, ORDER_NUM: row.ORDER_NUM, MODEL_TYPE: row.MODEL_TYPE, STOCK_NUM: row.STOCK_NUM, STORAGE_NUM: row.STORAGE_NUM, OUTBOUND_NUM: row.OUTBOUND_NUM, SHORAGE_NUM: row.SHORAGE_NUM, PRODUCTION_NUM: row.PRODUCTION_NUM, PLAN_NUM: row.PLAN_NUM, flg_delivered: row.flg_delivered, flg_finish: row.flg_finish, flg_emergency: row.flg_emergency },
                 dataType: 'json', type: 'post',
                 beforeSend: function () {
                 },
                 complete: function () {
                 },
                 success: function (result) {
-                    
+                    GetData();
                 }
             });
         }
@@ -222,8 +290,12 @@
                     </td> 
                     <td>
                         <input type="button" style="background-color:dodgerblue;color:white;width: 100px;height: 47px;border:0;font-size: 16px;border-radius: 30px;" value="增加" onclick="DataAdd()" />
-                        <input type="button" style="background-color:dimgrey;color:white;width: 100px;height: 47px;border:0;font-size: 16px;border-radius: 30px;" value="删除" onclick="DataDelete()"  />
+                        <input type="button" style="background-color:dimgrey;color:white;width: 100px;height: 47px;border:0;font-size: 16px;border-radius: 30px;" value="删除" onclick="DataDelete()"  />                        
                     </td>
+                    <td>
+                        <label style="font-size:14px;color:red;text-align:left;" >*待产-橙色   紧急-红色   完成-黄色</label>
+                    </td> 
+                    
 
                 </tr>
             </table>                        
