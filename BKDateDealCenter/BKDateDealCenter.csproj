@@ -139,6 +139,7 @@
     <Content Include="Main.aspx" />
     <Content Include="pages\analysis.html" />
     <Content Include="pages\MachineStatus.html" />
+    <Content Include="pages\monoblock.html" />
     <Content Include="QCMain.aspx" />
     <Content Include="Scripts\base.js" />
     <Content Include="Scripts\bmap.min.js" />

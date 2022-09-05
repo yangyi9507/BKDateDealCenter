@@ -12,6 +12,7 @@
     <script src="../Scripts/ligerGrid.js" type="text/javascript"></script>
     <script src="../Scripts/ligerCheckBox.js" type="text/javascript"></script>
     <script src="../Scripts/ligerTextBox.js" type="text/javascript"></script>
+    <script src="../Scripts/ligerComboBox.js" type="text/javascript"></script>
     <style>
         input{
             outline-style: none ;
@@ -108,7 +109,7 @@
                 complete: function () {
                 },
                 success: function (result) {
-                    
+                    GetQCData();
                 }
             });
         }

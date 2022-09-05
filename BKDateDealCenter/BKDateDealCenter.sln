@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BKDateDealCenter", "BKDateDealCenter.csproj", "{923B7934-78FE-4855-B372-66F313E7D3A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D8635630-4B2E-4EEA-823E-E44F59F3FD95} = {D8635630-4B2E-4EEA-823E-E44F59F3FD95}
+		{E46D72B6-A853-4F4B-956B-BBF8059A00BE} = {E46D72B6-A853-4F4B-956B-BBF8059A00BE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{E46D72B6-A853-4F4B-956B-BBF8059A00BE}"
 EndProject
