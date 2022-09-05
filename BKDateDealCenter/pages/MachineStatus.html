@@ -7,6 +7,7 @@
     <script src="../Scripts/china.js"></script>
     <script src="../Scripts/bmap.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="../Scripts/jquery-3.2.0.min.js"></script>
 
     <style type="text/css">
         * {
@@ -56,306 +57,225 @@
         }
 
         h2 {
-            margin-top: 1%;
+            margin-top: 1.5%;
             width: 100%;
             text-align: center;
+            color: white;
         }
 
-        #dateTime {
+        th {
+            width: 20%;
         }
     </style>
 </head>
-<body>
+<body style="background:url(../img/bgjjg.jpg)">
 
     <div class="main">
 
         <div class="quarter-div">
 
-            <h2>机器状态</h2>
-            <div class="quarter-chil" id="container"></div>
+            <h2>排产计划</h2>
+            <div class="quarter-chil" style="height: 90%;">
+                <table style="height: 8%; margin-left: 5%; margin-bottom: 0%; width: 100%; border-bottom: 1px solid white; ">
+                    <tr>
+                        <td style="width: 25%;">型号</td>
+                        <td style="width: 25%;">在产数量</td>
+                        <td style="width: 25%;">在途数量</td>
+                        <td style="width: 25%;">完成日期</td>
+                    </tr>
+                </table>
+
+                <div style="overflow-y:hidden; height: 100%; margin-left: 5%;"
+                     id="demo">
+
+                    <div id="marquePic1">
+                        <table style="padding-top:1%;" id="t_body">
+                            <tr>
+                                <td style="width: 25%;">酶标仪</td>
+                                <td style="width: 25%;">在产126台</td>
+                                <td style="width: 25%;">在途10台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-200</td>
+                                <td style="width: 25%;">在产57台</td>
+                                <td style="width: 25%;">在途200台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-400</td>
+                                <td style="width: 25%;">在产160台</td>
+                                <td style="width: 25%;">在途0台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-600</td>
+                                <td style="width: 25%;">在产26台</td>
+                                <td style="width: 25%;">在途100台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">PR48</td>
+                                <td style="width: 25%;">在产80台</td>
+                                <td style="width: 25%;">在途50台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-PR96</td>
+                                <td style="width: 25%;">在产2台</td>
+                                <td style="width: 25%;">在途60台</td>
+                                <td style="width: 25%;">完成日期:2023-01-10</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-PR48P</td>
+                                <td style="width: 25%;">在产45台</td>
+                                <td style="width: 25%;">在途50台</td>
+                                <td style="width: 25%;">完成日期:2022-11-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-RT1000</td>
+                                <td style="width: 25%;">在产60台</td>
+                                <td style="width: 25%;">在途200台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">酶标仪</td>
+                                <td style="width: 25%;">在产126台</td>
+                                <td style="width: 25%;">在途10台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-200</td>
+                                <td style="width: 25%;">在产57台</td>
+                                <td style="width: 25%;">在途200台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-400</td>
+                                <td style="width: 25%;">在产160台</td>
+                                <td style="width: 25%;">在途0台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-600</td>
+                                <td style="width: 25%;">在产26台</td>
+                                <td style="width: 25%;">在途100台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">PR48</td>
+                                <td style="width: 25%;">在产80台</td>
+                                <td style="width: 25%;">在途50台</td>
+                                <td style="width: 25%;">完成日期:2022-10-25</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-PR96</td>
+                                <td style="width: 25%;">在产2台</td>
+                                <td style="width: 25%;">在途60台</td>
+                                <td style="width: 25%;">完成日期:2023-01-10</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-PR48P</td>
+                                <td style="width: 25%;">在产45台</td>
+                                <td style="width: 25%;">在途50台</td>
+                                <td style="width: 25%;">完成日期:2022-11-22</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">BK-RT1000</td>
+                                <td style="width: 25%;">在产60台</td>
+                                <td style="width: 25%;">在途200台</td>
+                                <td style="width: 25%;">完成日期:2022-09-22</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="marquePic2" valign="top"></div>
+                </div>
+            </div>
+
         </div>
         <div class="quarter-div">
             <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-3%; width:40%;margin-left:50%;"> </div>
-            <h2>排产</h2>
-            <div class="quarter-chil" id="mains"></div>
-        </div>
-        <div class="quarter-div">
-            <h2>产量</h2>
-            <div class="quarter-chil" id="hegelv"></div>
-        </div>
-        <div class="quarter-div">
-            <h2>合格率</h2>
-            <div class="quarter-chil" id="paichan"></div>
-        </div>
+            <h2 style="margin-top:1.5%;">固定资产</h2>
+            <div id="quarter-header">
+                <table style="width:100%">
+                    <thead>
+                    <th>批次</th>
+                    <th>运输状态</th>
+                    <th>型号</th>
+                    <th>种类</th>
 
 
+                    </thead>
+                </table>
+            </div>
+            <div style="overflow-y:hidden; height: 100%; margin-left: 5%;" id="quarter_body">
+                <div id="mains1"></div>
+                <div id="mains2"></div>
+            </div>
 
-    </div>
+
+        </div>
+            <div class="quarter-div">
+                <h2>产能</h2>
+                <div class="quarter-chil" id="hegelv"></div>
+            </div>
+            <div class="quarter-div">
+                <h2>当月效率</h2>
+                <div class="quarter-chil" id="paichan"></div>
+            </div>
+        </div>
 </body>
-
 <script type="text/javascript">
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-    var app = {};
-    var colors = ['#75d874', '#c0c0c0']; //三种状态的颜色
-    var state = ['运行', '停止']; //三种状态
 
-    // echart配置
-    var option = {
 
-        color: colors,
-        tooltip: {//提示框
-            formatter: function (params) {
-                return params.name + ':<br/>' + params.value[1] + '~' + params.value[2] + '<br/>' + params.value[3];
-            }//数据的值
-        },
-        legend: {//图例
-            data: state,
-            top: '5%',
-            selectedMode: false, // 图例设为不可点击
-            textStyle: {
-                color: '#ffffff'
-            }
-        },
-        grid: {//绘图网格
-            //left: '3%',
-            //right: '3%',
-            //top: '10%',
-            //bottom: '0',
-            //containLabel: false
-        },
-        xAxis: {
-            type: 'time',
-            scale: true,
-            //interval: 3600  * 2000,   //以一个小时递增
-            interval: 3600 * 3000,   //以一个小时递增
-            min: '2009-6-1 00:00', //将data里最小时间的整点时间设为min,否则min会以data里面的min为开始进行整点递增
-            axisLabel: {
+    var speeds = 40;
+    var oldvalues = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
+    mains2.innerHTML = mains1.innerHTML;
+    function Marquees() {
+        //var scrollHeightValue = document.getElementById('mains').scrollHeight;//获取div#mains滚动条高度值
 
-                formatter: function (value) {
-                    var date = new Date(value);
-                    return getzf(date.getHours()) + ':00';
-                    function getzf(num) {
-                        if (parseInt(num) < 10) {
-                            num = '0' + num;
+        if (oldvalues >= mains1.scrollHeight) {
+            quarter_body.scrollTop = 0;
+            oldvalues = 0;
+            $.ajax({
+                url: '../AjaxMain.aspx?Action=GetQCData',//ajax的请求路径
+                type: 'get',//ajax发送请求的方式
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    var RowsArr = data.Rows;
+                    if (RowsArr.length > 0) {
+                        var str = "";
+                        str += "<table style=\"padding-top:5%; width:100%\" id=\"t_body\">";
+                        for (var i = 0; i < RowsArr.length; i++) {
+                            //RowsArr[i].ID ID;  RowsArr[i].QCNumber  批号
+                            //RowsArr[i].Status 运行状态;  RowsArr[i].Type 类型
+                            //RowsArr[i].Class 种类;
+                            str += "<tr>";                            
+                            str += "<td style=\"width:25%;text-algin:center\" class=\"td_xh\">" + RowsArr[i].QCNumber + "</td>";
+                            str += "<td style=\"width:25%;text-algin:center\">" + RowsArr[i].Status + "</td>";
+                            str += "<td style=\"width:25%;text-algin:center\">" + RowsArr[i].Type + "</td>";
+                            str += "<td style=\"width:25%;text-algin:center\">" + RowsArr[i].Class + "</td>";
+                            str += "</tr>";
                         }
-                        return num;
+                        str += "</table>";
+
+                        document.getElementById("mains1").innerHTML = str;
+                        document.getElementById("mains2").innerHTML = str;
                     }
                 }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: 'white'
-                }
-            },
-
-        },
-        yAxis: {
-            data: ['BK600', 'BK400', 'BK200', 'BK-PR96', 'BK-PR48', 'BK-HS96', 'BK-10D'],
-            axisLine: {
-                lineStyle: {
-                    color: 'white'
-                }
-            },
-        },
-        series: [
-
-            { name: state[0], type: 'bar', data: [] },
-            { name: state[1], type: 'bar', data: [] },
-            { name: state[2], type: 'bar', data: [] },// 用空bar来显示三个图例
-            {
-                type: 'custom',
-                renderItem: function (params, api) {//开发者自定义的图形元素渲染逻辑，是通过书写 renderItem 函数实的
-                    var categoryIndex = api.value(0);//这里使用 api.value(0) 取出当前 dataItem 中第一个维度的数值。
-                    var start = api.coord([api.value(1), categoryIndex]); // 这里使用 api.coord(...) 将数值在当前坐中换 为 幕点值。
-                    var end = api.coord([api.value(2), categoryIndex]);
-                    var height = api.size([0, 1])[1] * 0.6;
-
-                    return {
-                        type: 'rect',// 表示这个图形元素是矩形。还可以是 'circle', 'sector', 'polygon' 等等。
-                        shape: echarts.graphic.clipRectByRect({ // 矩形的位置和大小。
-                            x: start[0],
-                            y: start[1] - height / 2,
-                            width: end[0] - start[0],
-                            height: height
-
-                        }, { // 当前坐标系的包围盒。
-                            x: params.coordSys.x,
-                            y: params.coordSys.y,
-                            width: params.coordSys.width,
-                            height: params.coordSys.height
-                        }),
-                        style: api.style()
-                    };
-                },
-                encode: {
-                    x: [1, 2], // data 中『维度1』和『维度2』对应到 X 轴
-                    y: 0// data 中『维度0』对应到 Y 轴
-                },
-                data: [ // 维度0 维度1 维度2
-                    {
-                        itemStyle: { normal: { color: colors[0] } },//条形颜色
-                        name: '1#',
-                        value: [0, '2009-06-01 1:00', '2009-06-01 5:00', 0]//0,1,2代表y轴的索引，后两位代表x轴数据始和束
-                    }, {
-                        itemStyle: { normal: { color: colors[1] } },
-                        name: '1#',
-                        value: [0, '2009-06-01 5:00', '2009-06-01 6:13', 0]
-                    },
-                    {
-                        itemStyle: { normal: { color: colors[0] } },
-                        name: '1#',
-                        value: [0, '2009-06-01 6:13', '2009-06-01 8:22', 0]
-                    },
-                    {
-                        itemStyle: { normal: { color: colors[2] } },
-                        name: '1#',
-                        value: [0, '2009-06-01 8:22', '2009-06-01 10:22', 0]
-                    },
-                    {
-                        itemStyle: { normal: { color: colors[1] } },
-                        name: '2#',
-                        value: [1, '2009-06-01 5:00', '2009-06-01 6:13', 0]
-                    },
-                    {
-                        itemStyle: { normal: { color: colors[1] } },
-                        name: '2#',
-                        value: [1, '2009-06-01 8:22', '2009-06-01 9:10', 0]
-                    },
-                    {
-                        itemStyle: { normal: { color: colors[1] } },
-                        name: '2#',
-                        value: [1, '2009-06-01 12:47', '2009-06-01 23:52', 0]
-                    }
-                ]
+            });
+        } else {
+            oldvalues = quarter_body.scrollTop;
+            quarter_body.scrollTop++;
+            if (quarter_body.scrollTop == oldvalues) {
+                oldvalues = mains1.scrollHeight;
             }
-        ]
-    };
-    myChart.setOption(option, true);
+        }
+    }
+    var MyMars = setInterval(Marquees, speeds);
 
 
-    var chartDom = document.getElementById('mains');
-    var myChart2 = echarts.init(chartDom);
-    var option2;
-
-    option2 = {
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data: ['BK600', 'BK400', 'BK200', 'BK-PR48', 'BK-PR96'],
-            textStyle: {
-                color: "white",
-                fontSize: 14
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['01', '02', '03', '04', '05', '06', '07', '08', '09'],
-            axisLine: {
-                lineStyle: {
-                    color: 'white'
-                }
-            },
-        },
-        yAxis: {
-            type: 'value',
-            axisLine: {
-                lineStyle: {
-                    color: 'white'
-                }
-            },
-        },
-        series: [
-            {
-                name: 'BK600',
-                type: 'line',
-                stack: 'Total',
-
-                //areaStyle: {},//堆叠面积
-                emphasis: { focus: 'series' },//鼠标移入着重显示
-                data: [120, 132, 101, 134, 90, 230, 210],
-                itemStyle: {
-                    normal: {
-                        label: { show: false }
-                    }
-                }//是否显示折线图上面的数字
-            },
-            {
-                name: 'BK400',
-                type: 'line',
-                stack: 'Total',
-
-                //areaStyle: {},//堆叠面积
-                emphasis: { focus: 'series' },//鼠标移入着重显示
-                data: [220, 182, 191, 234, 290, 330, 310],
-                itemStyle: {
-                    normal: {
-                        label: { show: false },
-                        color: 'rgba(230,253,139,.7)'
-                    }
-                }//是否显示折线图上面的数字
-            },
-            {
-                name: 'BK200',
-                type: 'line',
-                stack: 'Total',
-
-                //areaStyle: {},//堆叠面积
-                emphasis: { focus: 'series' },//鼠标移入着重显示
-                data: [150, 232, 201, 154, 190, 330, 410],
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: false,
-                        },
-                        color: '#1EA362'
-                    }
-                }//是否显示折线图上面的数字
-            },
-            {
-                name: 'BK-PR48',
-                type: 'line',
-                stack: 'Total',
-                //areaStyle: {},//堆叠面积
-                emphasis: { focus: 'series' },//鼠标移入着重显示
-                data: [320, 332, 301, 334, 390, 330, 320],
-                itemStyle: {
-                    normal: {
-                        textStyle: { color: 'white' },
-                        label: { show: false },
-                        color: '#F5A115'
-                    }
-                }//是否显示折线图上面的数字
-            },
-            {
-                name: 'BK-PR96',
-                type: 'line',
-                stack: 'Total',
-                //areaStyle: {},//堆叠面积
-                emphasis: { focus: 'series' },//鼠标移入着重显示
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                itemStyle: {
-                    normal: {
-                        label: { show: false },
-                        color: '#BF8FF3'
-                    }
-                }//是否显示折线图上面的数字
-            }
-        ]
-    };
-
-    option2 && myChart2.setOption(option2);
 
 
 
@@ -379,8 +299,9 @@
             data: ['A', 'B'],
             textStyle: {
                 color: "white",
-                fontSize: 14
+                fontsize: 14
             }
+
         },
         // 图例
         //tooltip: {
@@ -476,7 +397,7 @@
             data: ['排产量', '完成量', '完成率'],
             textStyle: {
                 color: "white",
-                fontSize: 14
+                fontsize: 14
             }
         },
         xAxis: [
@@ -512,9 +433,9 @@
             {
                 type: 'value',//显示Y轴数据类型
                 //name: '完成率',//显示Y轴数据名称
-                min: 0,//最小数值
-                max: 25,//最大数值
-                interval: 5,//递增数据
+                min: 80,//最小数值
+                max: 130,//最大数值
+                interval: 10,//递增数据
                 axisLabel: {
                     formatter: '{value} %'//显示格式
                 },
@@ -572,7 +493,8 @@
                         return value + ' %';
                     }
                 },
-                data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2],
+                data: [110, 100, 105, 110, 104, 100, 103.5, 100, 100, 95, 100, 105],
+                smooth: true,
                 itemStyle: {
                     normal: {
                         label: { show: false },
@@ -605,6 +527,25 @@
 
         }
     }
+
+
+    //纵向滚动 需要设置div的高度
+    var speed = 40;
+    var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
+    marquePic2.innerHTML = marquePic1.innerHTML;
+    function Marquee() {
+        if (oldvalue >= marquePic1.scrollHeight) {
+            demo.scrollTop = 0;
+            oldvalue = 0;
+        } else {
+            oldvalue = demo.scrollTop;
+            demo.scrollTop++;
+            if (demo.scrollTop == oldvalue) {
+                oldvalue = marquePic1.scrollHeight;
+            }
+        }
+    }
+    var MyMar = setInterval(Marquee, speed);
 
 </script>
 </html>
