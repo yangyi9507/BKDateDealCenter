@@ -92,6 +92,8 @@
     <Content Include="img\bbox2.png" />
     <Content Include="img\bg.jpg" />
     <Content Include="img\bg1.jpg" />
+    <Content Include="img\bgjjg.jpg" />
+    <Content Include="img\bgkt.jpg" />
     <Content Include="img\blue_rico.png" />
     <Content Include="img\bnt.png" />
     <Content Include="img\bntactive.png" />

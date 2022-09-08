@@ -75,8 +75,8 @@
         <div class="quarter-div">
 
             <h2>排产计划</h2>
-            <div class="quarter-chil" style="height: 90%;">
-                <table style="height: 8%; margin-left: 5%; margin-bottom: 0%; width: 100%; border-bottom: 1px solid white; ">
+            <div class="quarter-chil" style="height: 80%;">
+                <table style="height: 8%; margin-left: 5%; margin-bottom: 0%; width: 90%; border-bottom: 1px solid white; ">
                     <tr>
                         <td style="width: 25%;">型号</td>
                         <td style="width: 25%;">在产数量</td>
@@ -85,11 +85,11 @@
                     </tr>
                 </table>
 
-                <div style="overflow-y:hidden; height: 100%; margin-left: 5%;"
+                <div style="overflow-y:hidden; height: 90%; margin-left: 5%;"
                      id="demo">
 
                     <div id="marquePic1">
-                        <table style="padding-top:1%;" id="t_body">
+                        <table style=" height:85%;width:95%" id="t_body">
                             <tr>
                                 <td style="width: 25%;">酶标仪</td>
                                 <td style="width: 25%;">在产126台</td>
@@ -208,7 +208,7 @@
                     </thead>
                 </table>
             </div>
-            <div style="overflow-y:hidden; height: 100%; margin-left: 5%;" id="quarter_body">
+            <div style="overflow-y:hidden; height: 78%; margin-left: 5%;" id="quarter_body">
                 <div id="mains1"></div>
                 <div id="mains2"></div>
             </div>
@@ -246,7 +246,7 @@
                     var RowsArr = data.Rows;
                     if (RowsArr.length > 0) {
                         var str = "";
-                        str += "<table style=\"padding-top:5%; width:100%\" id=\"t_body\">";
+                        str += "<table style=\"width:100%\" id=\"t_body\">";
                         for (var i = 0; i < RowsArr.length; i++) {
                             //RowsArr[i].ID ID;  RowsArr[i].QCNumber  批号
                             //RowsArr[i].Status 运行状态;  RowsArr[i].Type 类型
@@ -330,9 +330,9 @@
             {
                 type: 'value',
                 name: '',
-                min: 95,
+                min: 0,
                 max: 100,
-                interval: 1,
+                interval: 10,
                 axisLine: {
                     lineStyle: {
                         color: 'white'
@@ -344,7 +344,7 @@
         series: [
             {
                 name: 'A',
-                data: [99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.7, 99.9],
+                data: [95, 89, 82, 99, 100,83, 86,91,83, 99, 97, 89, 92,89, 98, 82],
                 type: 'line',
                 smooth: true,
                 itemStyle: {
@@ -356,7 +356,7 @@
             },
             {
                 name: 'B',
-                data: [99.5, 97.5, 98.5, 97.6, 96.5, 95.3, 97.9, 98.5, 99.2, 98.3, 97, 100, 96.7, 95.9, 97.7, 98.9],
+                data: [97, 89, 92, 89, 98, 82,90, 100, 98, 91, 92, 91, 81, 88, 85, 93, 92],
                 type: 'line',
                 smooth: true,
                 itemStyle: {
@@ -419,8 +419,8 @@
                 type: 'value',//显示Y轴数据类型
                 //name: '完成量',//显示Y轴数据名称
                 min: 0,//最小数值
-                max: 250,//最大数值
-                interval: 50,//递增数据
+                max: 160,//最大数值
+                interval: 20,//递增数据
                 axisLabel: {
                     formatter: '{value} 台'//显示格式
                 },
@@ -433,8 +433,8 @@
             {
                 type: 'value',//显示Y轴数据类型
                 //name: '完成率',//显示Y轴数据名称
-                min: 80,//最小数值
-                max: 130,//最大数值
+                min: 70,//最小数值
+                max: 150,//最大数值
                 interval: 10,//递增数据
                 axisLabel: {
                     formatter: '{value} %'//显示格式
@@ -457,7 +457,8 @@
                     }
                 },
                 data: [
-                    2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
+                    100, 88, 98, 93, 89, 80, 89, 89,  92, 95, 82, 95, 78, 85, 90, 90,83,  95
+                
                 ],
                 itemStyle: {
                     normal: {
@@ -475,7 +476,7 @@
                     }
                 },
                 data: [
-                    2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
+                    98,97, 89, 92, 89, 98, 82, 90, 100, 98, 91, 92, 91, 81, 88, 85, 93, 92
                 ],
                 itemStyle: {
                     normal: {
@@ -493,12 +494,12 @@
                         return value + ' %';
                     }
                 },
-                data: [110, 100, 105, 110, 104, 100, 103.5, 100, 100, 95, 100, 105],
+                data: [98,101, 91, 99, 100, 123, 92, 101, 109, 103, 111, 97, 117, 95, 98, 94, 112, 97],
                 smooth: true,
                 itemStyle: {
                     normal: {
                         label: { show: false },
-                        color: '#1EA362'
+                        color: '#FFFF00'
                     }
                 }
             }
