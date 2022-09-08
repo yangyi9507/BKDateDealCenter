@@ -154,11 +154,11 @@ namespace BKDateDealCenter
         {
 
             StringBuilder str = new StringBuilder();
-            str.AppendLine("UPDATE test.DataDeal SET ");
+            str.AppendLine("UPDATE test.fixedassets SET ");
             str.AppendLine("QCNumber = '" + model.QCNumber + "', ");
             str.AppendLine("Status='" + model.Status + "', ");
             str.AppendLine("Type='" + model.Type + "', ");
-            str.AppendLine("Class='" + model.Class + "', ");
+            str.AppendLine("Class='" + model.Class + "' ");
             str.AppendLine("WHERE ID='" + model.ID + "';");
             cmdText = str.ToString();
 
