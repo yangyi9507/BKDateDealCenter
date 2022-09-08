@@ -188,7 +188,7 @@
                     <div id="marquePic2" valign="top"></div>
                 </div>
             </div>
-           
+
         </div>
         <div class="quarter-div">
             <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-3%; width:40%;margin-left:50%;"> </div>
@@ -204,8 +204,7 @@
             <div class="quarter-chil" id="paichan"></div>
         </div>
     </div>
-</body>
-   <script type="text/javascript">
+    <script type="text/javascript">
         //var dom = document.getElementById("container");
         //var myChart = echarts.init(dom);
         //var app = {};
@@ -214,7 +213,7 @@
 
         //// echart配置
         //var option = {
-           
+
         //    color: colors,
         //    tooltip: {//提示框
         //        formatter: function (params) {
@@ -239,18 +238,18 @@
         //    xAxis: {
         //        type: 'time',
         //        scale: true,
-        //        //interval: 3600  * 2000,   //以一个小时递增 
-        //        interval: 3600  * 3000,   //以一个小时递增 
+        //        //interval: 3600  * 2000,   //以一个小时递增
+        //        interval: 3600  * 3000,   //以一个小时递增
         //        min: '2009-6-1 00:00', //将data里最小时间的整点时间设为min,否则min会以data里面的min为开始进行整点递增
         //        axisLabel: {
-                 
+
         //            formatter: function (value) {
-        //                var date = new Date(value); 
+        //                var date = new Date(value);
         //                return getzf(date.getHours()) + ':00';
         //                function getzf(num) {
-        //                    if (parseInt(num) < 10) 
+        //                    if (parseInt(num) < 10)
         //                    {
-        //                            num = '0' + num; 
+        //                            num = '0' + num;
         //                    }
         //                    return num;
         //                }
@@ -261,7 +260,7 @@
         //                color:'white'
         //            }
         //        },
-               
+
         //    },
         //    yAxis: {
         //        data: ['BK600', 'BK400', 'BK200', 'BK-PR96', 'BK-PR48', 'BK-HS96', 'BK-10D'],
@@ -291,7 +290,7 @@
         //                        y: start[1] - height / 2,
         //                        width: end[0] - start[0],
         //                        height: height
-                                
+
         //                    }, { // 当前坐标系的包围盒。
         //                        x: params.coordSys.x,
         //                        y: params.coordSys.y,
@@ -345,14 +344,14 @@
         //    ]
         //};
         //myChart.setOption(option, true);
-       
+
 
         var chartDom = document.getElementById('mains');
         var myChart2 = echarts.init(chartDom);
         var option2;
 
         option2 = {
-         
+
             tooltip: {
                 trigger: 'axis'
             },
@@ -360,9 +359,9 @@
                 data: ['BK600', 'BK400', 'BK200', 'BK-PR48', 'BK-PR96'],
                 textStyle: {
                     color: "white",
-                    fontsize:14
-                  
-                    
+                    fontsize: 14
+
+
                 }
             },
             grid: {
@@ -372,7 +371,7 @@
                 containLabel: true
             },
             toolbox: {
-            
+
             },
             xAxis: {
                 type: 'category',
@@ -394,83 +393,85 @@
             },
             series: [
                 {
-                name: 'BK600',
-                type: 'line',
+                    name: 'BK600',
+                    type: 'line',
                     stack: 'Total',
-                
-                //areaStyle: {},//堆叠面积
-                emphasis: {focus: 'series'},//鼠标移入着重显示
-                data: [120, 132, 101, 134, 90, 230, 210],
-                smooth: true,
-                itemStyle: {
-                    normal: {
-                        label: { show: true },
-                          
-                    }
-                }//是否显示折线图上面的数字
-                },
-                {
-                name: 'BK400',
-                type: 'line',
-                    stack: 'Total',
-                    
-                //areaStyle: {},//堆叠面积
-                emphasis: {focus: 'series'},//鼠标移入着重显示
-                data: [220, 182, 191, 234, 290, 330, 310],
-                smooth: true,
-                itemStyle: {
-                    normal: {
-                        label: { show: true },
-                        color: 'rgba(230,253,139,.7)'
-                    }
-                }//是否显示折线图上面的数字
-                },
-                {
-                name: 'BK200',
-                type: 'line',
-                    stack: 'Total',
-                   
-                //areaStyle: {},//堆叠面积
-                emphasis: {focus: 'series'},//鼠标移入着重显示
-                data: [150, 232, 201, 154, 190, 330, 410],
-                smooth: true,
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,                          
-                        },
-                        color: '#1EA362'
+
+                    //areaStyle: {},//堆叠面积
+                    emphasis: { focus: 'series' },//鼠标移入着重显示
+                    data: [120, 132, 101, 134, 90, 230, 210],
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            label: { show: true },
+
                         }
                     }//是否显示折线图上面的数字
                 },
                 {
-                name: 'BK-PR48',
-                type: 'line',
-                stack: 'Total',
-                //areaStyle: {},//堆叠面积
-                emphasis: {focus: 'series'},//鼠标移入着重显示
+                    name: 'BK400',
+                    type: 'line',
+                    stack: 'Total',
+
+                    //areaStyle: {},//堆叠面积
+                    emphasis: { focus: 'series' },//鼠标移入着重显示
+                    data: [220, 182, 191, 234, 290, 330, 310],
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            label: { show: true },
+                            color: 'rgba(230,253,139,.7)'
+                        }
+                    }//是否显示折线图上面的数字
+                },
+                {
+                    name: 'BK200',
+                    type: 'line',
+                    stack: 'Total',
+
+                    //areaStyle: {},//堆叠面积
+                    emphasis: { focus: 'series' },//鼠标移入着重显示
+                    data: [150, 232, 201, 154, 190, 330, 410],
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                            },
+                            color: '#1EA362'
+                        }
+                    }//是否显示折线图上面的数字
+                },
+                {
+                    name: 'BK-PR48',
+                    type: 'line',
+                    stack: 'Total',
+                    //areaStyle: {},//堆叠面积
+                    emphasis: { focus: 'series' },//鼠标移入着重显示
                     data: [320, 332, 301, 334, 390, 330, 320],
                     smooth: true,
                     itemStyle: {
                         normal: {
-                            textStyle: {color:'white'},
+                            textStyle: { color: 'white' },
                             label: { show: true },
                             color: '#F5A115'
-                        }}//是否显示折线图上面的数字
+                        }
+                    }//是否显示折线图上面的数字
                 },
                 {
-                name: 'BK-PR96',
-                type: 'line',
-                stack: 'Total',
-                //areaStyle: {},//堆叠面积
-                emphasis: {focus: 'series'},//鼠标移入着重显示
+                    name: 'BK-PR96',
+                    type: 'line',
+                    stack: 'Total',
+                    //areaStyle: {},//堆叠面积
+                    emphasis: { focus: 'series' },//鼠标移入着重显示
                     data: [820, 932, 901, 934, 1290, 1330, 1320],
                     smooth: true,
                     itemStyle: {
                         normal: {
                             label: { show: true },
                             color: '#BF8FF3'
-                        }}//是否显示折线图上面的数字
+                        }
+                    }//是否显示折线图上面的数字
                 }
             ]
         };
@@ -488,20 +489,20 @@
                 left: '5%',
                 right: '8%',
                 bottom: '7%',
-                top:'8%',
+                top: '8%',
                 containLabel: true
             },
             toolbox: {
-                },
+            },
             // 标题
-        
+
             legend: {
                 data: ['A', 'B'],
                 textStyle: {
                     color: "white",
-                    fontsize:14
+                    fontsize: 14
                 }
-                
+
             },
             // 图例
             //tooltip: {
@@ -511,21 +512,21 @@
             //    // {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
             //    formatter: "{b}：{c}%"
             //},
-            xAxis: 
-            [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25', '27', '29', '31'],
-                axisPointer: {
-                    type: 'shadow'
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: 'white'
-                    }
-                },
+            xAxis:
+                [{
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25', '27', '29', '31'],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
 
-            }],
+                }],
             yAxis: [
                 {
                     type: 'value',
@@ -533,31 +534,31 @@
                     min: 0,
                     max: 100,
                     interval: 10,
-                     axisLine: {
+                    axisLine: {
                         lineStyle: {
                             color: 'white'
                         }
                     },
                 },
-             
+
             ],
             series: [
                 {
-                name: 'A',
+                    name: 'A',
                     data: [95, 89, 82, 99, 100, 83, 86, 91, 83, 99, 97, 89, 92, 89, 98, 82],
-                type: 'line',
+                    type: 'line',
                     smooth: true,
-                   itemStyle: {
-                    normal: {
-                        label: { show: false },
-                           color: '#FFFF00'
+                    itemStyle: {
+                        normal: {
+                            label: { show: false },
+                            color: '#FFFF00'
+                        }
                     }
-                }
                 },
                 {
-                name: 'B',
+                    name: 'B',
                     data: [97, 89, 92, 89, 98, 82, 90, 100, 98, 91, 92, 91, 81, 88, 85, 93, 92],
-                type: 'line',
+                    type: 'line',
                     smooth: true,
                     itemStyle: {
                         normal: {
@@ -566,7 +567,7 @@
                         }
                     }
                 }
-        ]
+            ]
         };
         line.setOption(lineOption);
 
@@ -576,176 +577,178 @@
         var option3;
 
         option3 = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-            type: 'cross',
-            crossStyle: {
-                color: '#ffffff'
-            }
-            }
-        },
-        toolbox: {
-            feature: {
-            //dataView: { show: true, readOnly: false },//右上角数据视图
-            //magicType: { show: true, type: ['line', 'bar'] },//变为折线图或者柱状图
-            //restore: { show: true },//还原
-            //saveAsImage: { show: true }//下载图片
-            }
-        },
-        legend: {
-            data: ['排产量', '完成量', '完成率'],
-            textStyle: {
-                color: "white",
-                fontsize:14
-            }
-        },
-        xAxis: [
-            {
-            type: 'category',
-            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-            axisPointer: {
-                type: 'shadow'
-                },
-             axisLine: {
-                    lineStyle: {
-                        color:'white'
-                    }
-                },
-            }
-        ],
-        yAxis: [
-            {
-            type: 'value',//显示Y轴数据类型
-            //name: '完成量',//显示Y轴数据名称
-            min: 0,//最小数值
-            max: 160,//最大数值
-            interval: 20,//递增数据
-            axisLabel: {
-                formatter: '{value} 台'//显示格式
-                },
-             axisLine: {
-                    lineStyle: {
-                        color: 'white'
-                    }
-                },
-            },
-            {
-            type: 'value',//显示Y轴数据类型
-            //name: '完成率',//显示Y轴数据名称
-            min: 70,//最小数值
-            max: 150,//最大数值
-            interval: 10,//递增数据
-            axisLabel: {
-                formatter: '{value} %'//显示格式       
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: 'white'
-                    }
-                },
-
-            }
-        ],
-        series: [
-            {
-            name: '排产量',
-            type: 'bar',
             tooltip: {
-                valueFormatter: function (value) {
-                return value + ' 台';
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#ffffff'
+                    }
                 }
             },
-                data: [
-                    100, 88, 98, 93, 89, 80, 89, 89, 92, 95, 82, 95, 78, 85, 90, 90, 83, 95
-                ],
-              itemStyle: {
+            toolbox: {
+                feature: {
+                    //dataView: { show: true, readOnly: false },//右上角数据视图
+                    //magicType: { show: true, type: ['line', 'bar'] },//变为折线图或者柱状图
+                    //restore: { show: true },//还原
+                    //saveAsImage: { show: true }//下载图片
+                }
+            },
+            legend: {
+                data: ['排产量', '完成量', '完成率'],
+                textStyle: {
+                    color: "white",
+                    fontsize: 14
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',//显示Y轴数据类型
+                    //name: '完成量',//显示Y轴数据名称
+                    min: 0,//最小数值
+                    max: 160,//最大数值
+                    interval: 20,//递增数据
+                    axisLabel: {
+                        formatter: '{value} 台'//显示格式
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
+                },
+                {
+                    type: 'value',//显示Y轴数据类型
+                    //name: '完成率',//显示Y轴数据名称
+                    min: 70,//最小数值
+                    max: 150,//最大数值
+                    interval: 10,//递增数据
+                    axisLabel: {
+                        formatter: '{value} %'//显示格式
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
+
+                }
+            ],
+            series: [
+                {
+                    name: '排产量',
+                    type: 'bar',
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 台';
+                        }
+                    },
+                    data: [
+                        100, 88, 98, 93, 89, 80, 89, 89, 92, 95, 82, 95, 78, 85, 90, 90, 83, 95
+                    ],
+                    itemStyle: {
                         normal: {
                             label: { show: false },
-                      color: 'rgba(41,220,205,.7)'
+                            color: 'rgba(41,220,205,.7)'
                         }
                     }
-            },
-            {
-            name: '完成量',
-            type: 'bar',
-            tooltip: {
-                valueFormatter: function (value) {
-                return value + ' 台';
-                }
-            },
-            data: [
-                98, 97, 89, 92, 89, 98, 82, 90, 100, 98, 91, 92, 91, 81, 88, 85, 93, 92
-                ],
-                itemStyle: {
-                    normal: {
-                        label: { show: false },
-                        color: 'rgba(230,253,139,.7)'
+                },
+                {
+                    name: '完成量',
+                    type: 'bar',
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 台';
+                        }
+                    },
+                    data: [
+                        98, 97, 89, 92, 89, 98, 82, 90, 100, 98, 91, 92, 91, 81, 88, 85, 93, 92
+                    ],
+                    itemStyle: {
+                        normal: {
+                            label: { show: false },
+                            color: 'rgba(230,253,139,.7)'
+                        }
+                    }
+                },
+                {
+                    name: '完成率',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' %';
+                        }
+                    },
+                    data: [98, 101, 91, 99, 100, 123, 92, 101, 109, 103, 111, 97, 117, 95, 98, 94, 112, 97],
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            label: { show: false },
+                            color: '#FFFF00'
+                        }
                     }
                 }
-            },
-            {
-            name: '完成率',
-            type: 'line',
-            yAxisIndex: 1,
-            tooltip: {
-                valueFormatter: function (value) {
-                return value + ' %';
-                }
-            },
-                data: [98, 101, 91, 99, 100, 123, 92, 101, 109, 103, 111, 97, 117, 95, 98, 94, 112, 97],
-                smooth: true,
-                itemStyle: {
-                    normal: {
-                        label: { show: false },
-                        color: '#FFFF00'
-                    }
-                }
-            }
-        ]
+            ]
         };
 
         myChart3.setOption(option3);
-       Date.prototype.format = function (fmt) {
-           var o = {
-               "y+": this.getFullYear, //年
-               "M+": this.getMonth() + 1, //月份
-               "d+": this.getDate(), //日
-               "h+": this.getHours(), //小时
-               "m+": this.getMinutes(), //分
-               "s+": this.getSeconds() //秒
-           };
-           if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-           for (var k in o)
-               if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-           return fmt;
-       }
-       setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
-       function change(table) {
-           var row = table.insertRow(table.rows.length);
-           for (j = 0; j < table.row.length; j++) {
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "y+": this.getFullYear, //年
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds() //秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+        function change(table) {
+            var row = table.insertRow(table.rows.length);
+            for (j = 0; j < table.row.length; j++) {
 
-           }
-       }
+            }
+        }
 
 
-       //纵向滚动 需要设置div的高度
-       var speed = 40;
-       var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
-       marquePic2.innerHTML = marquePic1.innerHTML;
-       function Marquee() {
-           if (oldvalue >= marquePic1.scrollHeight) {
-               demo.scrollTop = 0;
-               oldvalue = 0;               
-           } else {
-               oldvalue = demo.scrollTop;
-               demo.scrollTop++;
-               if (demo.scrollTop == oldvalue) {
-                   oldvalue = marquePic1.scrollHeight;
-               }
-           }
-       }
-       var MyMar = setInterval(Marquee, speed);
+        //纵向滚动 需要设置div的高度
+        var speed = 40;
+        var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
+        marquePic2.innerHTML = marquePic1.innerHTML;
+        function Marquee() {
+            if (oldvalue >= marquePic1.scrollHeight) {
+                demo.scrollTop = 0;
+                oldvalue = 0;
+            } else {
+                oldvalue = demo.scrollTop;
+                demo.scrollTop++;
+                if (demo.scrollTop == oldvalue) {
+                    oldvalue = marquePic1.scrollHeight;
+                }
+            }
+        }
+        var MyMar = setInterval(Marquee, speed);
 
-   </script>
+    </script>
+</body>
+   
 </html>
