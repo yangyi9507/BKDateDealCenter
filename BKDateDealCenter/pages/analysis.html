@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" http-equiv="Refresh" content="3022222;URL=http://127.0.0.1/pages/MachineStatus.html">
     <title>博科MES系统</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -40,11 +40,16 @@
             }
 
         .td_xh {
-            width: 40%;
+            width: 35%;
+            font-size: 14px;
         }
-
+        .th_bt {
+            width: 20%;
+            font-size: 14px;
+        }
         .td_dd {
             width: 30%;
+            font-size: 14px;
         }
 
         table tbody td {
@@ -67,7 +72,7 @@
         }
     </style>
 </head>
-    <body>
+    <body style="background:url(../img/bggy.jpg);background-size:100% 100%">
         <div class="wpbox">
             <div class="bnt">
                 <div class="topbnt_left fl">
@@ -79,14 +84,19 @@
             </div>
             <!-- bnt end -->
             <div class="left1">
+                <div style="text-align:center;color:white;margin-top:-20%;">
+                    <label style="font-size:14px;">倒计时：</label>
+                    <label style="font-size:16px; color:red;" id="offtime">30</label>
+                    <label style="font-size:14px;">秒，进入机加工页面 </label>
+                </div>
                 <div class="aleftboxtmidd">
-                    <h2 class="tith2" style="color:white;padding-top: 7%;">今日产品划分</h2>
-                    <div style="margin-top:6%; height: 90%;" id="aleftboxtmidd" class="aleftboxtmiddcont"></div>
+                    <h2 class="tith2" style="color:white;padding-top: 8%;">今日产品划分</h2>
+                    <div style="margin-top:2%; height: 85%;" id="aleftboxtmidd" class="aleftboxtmiddcont"></div>
                 </div>
                 <div class="aleftboxtbott">
                     <h2 class="tith2" style="color:white;padding-top: 4%;">今日产品产量</h2>
 
-                    <div style="margin-top: 3%; height: 92%;" id="aleftboxtbott" class="aleftboxtbott_cont"></div>
+                    <div style="margin-top: 2%; height: 85%;" id="aleftboxtbott" class="aleftboxtbott_cont"></div>
                 </div>
             </div>
             <!--  left1 end -->
@@ -95,18 +105,18 @@
                     <div class="amiddboxttop">
                         <h2 class="tith2 pt1" style="color: White; padding-top: 0%; margin-top: 1.5%;">生产实时监控</h2>
                         <div class="amiddboxttop_map" style="margin-top: 0%;">
-                            <table style="height: 8%;margin-left: 5%; margin-bottom: 0%;" class="table table-condensed">
+                            <table style="height: 12%;margin-left: 5%;  margin-bottom: 0%;width:98%;" class="table table-condensed">
                                 <thead>
                                     <tr>
                                         <th class="td_dd">订单号</th>
                                         <th class="td_xh">型号</th>
-                                        <th>库存数</th>
-                                        <th>当日入库数</th>
-                                        <th>当日出库数</th>
-                                        <th>目前缺货数</th>
-                                        <th>在产数量</th>
-                                        <th>在途计划</th>
-                                    </tr>
+                                        <th class="th_bt">库存数</th>
+                                        <th class="th_bt">当日入库</th>
+                                        <th class="th_bt">当日出库</th>
+                                        <th class="th_bt">目前缺货</th>
+                                        <th class="th_bt">在产数量</th>
+                                        <th class="th_bt">在途计划</th>
+                                    </tr>  
                                 </thead>
                             </table>
                             <div style="overflow-y:hidden; height: 100%; margin-left: 5%;" class="table table-condensed"
@@ -121,13 +131,13 @@
                     <!--  amiddboxttop end-->
                     <div class="amidd_bott">
                         <div class="amiddboxtbott1 fl">
-                            <h2 class="tith2 pt1" style="color:white;margin-top: 0;padding-top: 1.5%;">月产量</h2>
-                            <div id="amiddboxtbott1" class="amiddboxtbott1content" style="height: 90%;"></div>
+                            <h2 class="tith2 pt1" style="color:white;margin-top: 0;padding-top: 2%;">月产量</h2>
+                            <div id="amiddboxtbott1" class="amiddboxtbott1content"></div>
                         </div>
 
                         <div class="amiddboxtbott2 fl">
-                            <h2 class="tith2 pt1" style="color:white; margin-top: 0; padding-top: 1.5%;">月生产效率</h2>
-                            <div id="amiddboxtbott2" class="amiddboxtbott2content" style="height: 90%;"></div>
+                            <h2 class="tith2 pt1" style="color:white; margin-top: 0; padding-top: 2%;">月生产效率</h2>
+                            <div id="amiddboxtbott2" class="amiddboxtbott2content" ></div>
                         </div>
                     </div>
                     <!-- amidd_bott end -->
@@ -135,14 +145,14 @@
                 <!-- mrbox_top end -->
 
 
-                <div class="mrbox_top_right">
+                <div class="mrbox_top_right" style="margin-top:1%">
 
 
-                    <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-50px;"> </div>
+                    <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-40px;"> </div>
                     <div class="arightboxtop">
                         <h2 class="tith2" style="color:white; padding-top: 2.5%;">生产计划</h2>
 
-                        <div class="left2_table" style="height: 90%;">
+                        <div class="left2_table" style="height: 90%;margin-top:0%">
                             <ul>
                                 <li>
                                     <p class="fl">
@@ -208,7 +218,7 @@
                     <div class="arightboxbott">
                         <h2 class="tith2 " style="color:white;padding-top: 2.5%;">产品合格率(每日)</h2>
 
-                        <div id="arightboxbott" class="arightboxbottcont" style="height: 92%;"></div>
+                        <div id="arightboxbott" class="arightboxbottcont" style="height: 85%;"></div>
                     </div>
                 </div>
                 <!-- mrbox_top_right end -->
@@ -233,9 +243,10 @@
                     {
                         name: '面积模式',
                         type: 'pie',
-                        radius: [5, 60],
-                        center: ['50%', '55%'],
+                        radius: [5, 45],
+                        center: ['50%', '50s%'],
                         roseType: 'area',
+                      
                         data: [
                             { value: 5, name: 'BK-HS96' },
                             { value: 10, name: 'BK10D' },
@@ -244,7 +255,22 @@
                             { value: 25, name: 'BK-200' },
                             { value: 25, name: 'BK-400' },
                             { value: 25, name: 'BK-600' },
-                        ]
+                        ],
+                        labelLine: {
+                            normal: {
+                                length: 0.5
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    textStyle: {
+                                        fontSize: 10
+                                    }
+                                }
+                            }
+                        }
+                       
                     }
                 ]
             };
@@ -295,7 +321,17 @@
                     axisLabel: {
                         color: "rgba(255,255,255,.5)"
                     },
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                textStyle: {
+                                    fontSize: 5
+                                }
+                            }
+                        }
+                    },
                     data: ['BK10D(酶标仪)', 'BK-HS96(全自动核酸)', 'BK-PR48(分杯)', 'BK-PR96(分杯)', 'BK200(生化仪)', 'BK400(生化仪)', 'BK600(生化仪)']
+                    
                 },
                 series: [
                     {
@@ -318,7 +354,7 @@
                                     position: 'right', //在上方显示
                                     textStyle: { //数值样式
                                         color: 'white',
-                                        fontSize: 16
+                                        fontSize: 14
                                     }
                                 }
                             },
@@ -651,7 +687,7 @@
             function Marquee() {
                 //var scrollHeightValue = document.getElementById('demo').scrollHeight;//获取div#demo滚动条高度值
 
-                if (oldvalue >= marquePic1.scrollHeight) {
+                if (oldvalue == marquePic1.scrollHeight) {
                     demo.scrollTop = 0;
                     oldvalue = 0;
                     $.ajax({
@@ -663,7 +699,7 @@
                             var RowsArr = data.Rows;
                             if (RowsArr.length > 0) {
                                 var str = "";
-                                str += "<table style=\"padding-top:5%;\" id=\"t_body\">";
+                                str += "<table style=\"padding-top:0%; height:100%;\" id=\"t_body\">";
                                 for (var i = 0; i < RowsArr.length; i++) {
                                     //RowsArr[i].ORDER_NUM 订单编号;  RowsArr[i].MODEL_TYPE  型号
                                     //RowsArr[i].STOCK_NUM 库存数;  RowsArr[i].STORAGE_NUM 当日入库数
@@ -683,14 +719,14 @@
                                     }
 
                                     str += "<tr>";
-                                    str += "<td style=\"color: " + color + ";\" class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
-                                    str += "<td style=\"color: " + color + ";\"  class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].STOCK_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].STORAGE_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].OUTBOUND_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].SHORAGE_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].PRODUCTION_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";\">" + RowsArr[i].PLAN_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STOCK_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STORAGE_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].OUTBOUND_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].SHORAGE_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PRODUCTION_NUM + "</td>";
+                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PLAN_NUM + "</td>";
                                     str += "</tr>";
                                 }
                                 str += "</table>";
@@ -709,9 +745,9 @@
                 }
             }
             var MyMar = setInterval(Marquee, speed);
-
-
+            var offtimeInt = 30;
             Date.prototype.format = function (fmt) {
+
                 var o = {
                     "y+": this.getFullYear, //年
                     "M+": this.getMonth() + 1, //月份
@@ -723,6 +759,8 @@
                 if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
                 for (var k in o)
                     if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                offtimeInt = offtimeInt - 1;
+                document.getElementById('offtime').innerHTML = offtimeInt;
                 return fmt;
             }
             setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);

@@ -30,13 +30,13 @@ textarea {
   margin: 0;
   padding: 0;list-style: none;font-style: normal;
 }
-html,body{ font-family: 微软雅黑, MicrosoftYahei, sans-serif; color:#fff; background:#00065b url(../img/bg1.jpg);    background-size: 100% 100%;background-position:0 0; width: 100%; height: 100%; background-repeat: no-repeat;}
+html,body{ font-family: 微软雅黑, MicrosoftYahei, sans-serif; color:#fff;     background-size: 100% 100%;background-position:0 0; width: 100%; height: 100%; background-repeat: no-repeat;}
 .wpbox{
   width: 100%;
   height: calc(100% - 10px)
 }
   .bnt{ height:9%; width: 100%; display: inline-block;}
-.left1{ width: 18%; height: calc(100% - 10%);float: left; padding-left:2.2%; text-align: center;}
+.left1{ width: 18%; height:90%;float: left; padding-left:2.2%; text-align: center;}
 .pleft1{width: 18.6%; float: left; padding-left:2.2%; text-align: center;}
 .puleft{padding-left:2.2%; width: 35.2%;text-align: center; height: 100%}
 .puleft2{width: 35%; height: 100%; padding-left: .4%}
@@ -173,14 +173,14 @@ i.redr{background-image:url(../img/ricon1.png);}
 .aleftboxttop .lefttoday_number{ background: none; }
 .aleftboxttop .widget-inline-box{width: 24.2%; margin: 0 .4%;    background: rgba(1,202,217,.2); padding: 16% 0; height:100%; font-size: 10px;}
 
-.aleftboxtmidd{background:url(../img/aleftboxtmidd.png); background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:98.5%; height: 50%;margin-bottom: 1%}
-.aleftboxtmiddcont{width:91%; height:86%;margin-left: 4.4%; margin-top: 1%;}
-.aleftboxtbott{background:url(../img/aleftboxtbott.png); background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:100%;height: 50% }
+.aleftboxtmidd{background:url(../img/aleftboxtmidd.png); background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:98.5%; height: 50%;margin-top:0;}
+.aleftboxtmiddcont{width:90%; height:85%;margin-left: 4.8%; margin-top: 1%;}
+.aleftboxtbott{background:url(../img/aleftboxtbott.png); background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:100%;height: 43% }
 .aleftboxtbott_cont{width:91%; height:82.6%; margin-top: 1.8%;margin-left: 4.4%;}
 .aleftboxtbott_cont2{width:89.9%; height:86.6%; margin-top:2.8%;margin-left: 5%;}
 .aleftboxtbott_contr{width:89.9%; height:90.6%; margin-top:1.8%;margin-left: 5%;}
 .amiddboxttop{ overflow: hidden;background:url(../img/amiddboxttop.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:99%; height:52.1%;}
-.amiddboxttop_map{background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; position: relative; width:90%; height:86%; margin:1.4% 10% 0 0;}
+.amiddboxttop_map{background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; position: relative; width:100%; height:86%; margin:1.4% 5% 0 0;}
 .hot_map{ width:90%; height:86%; margin:1.4% 5% 0;}
 
 .amidd_bott{ width: 100%; height: 38%; padding-top:.8%}
@@ -188,11 +188,11 @@ i.redr{background-image:url(../img/ricon1.png);}
 .amiddboxttop_map span.camera_l{background:url(../img/camera_l.png);background-repeat: no-repeat;background-position: 0 0; width: 24px; height: 19px; display: inline-block; position: absolute;}
 
 .amiddboxtbott1{background:url(../img/amiddboxtbott1.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center;width:48%; height:91.6%; margin-left: .5%; margin-right: 1%}
-.amiddboxtbott1content{width:91%; height:86.5%; margin-left: 4.8%; margin-top: 1.6%;}
-.amiddboxtbott1content2{width:91%; height:80%; margin-left: 4.8%; margin-top: .6%;}
+.amiddboxtbott1content{width:91%; height:85%; margin-left: 4.8%; margin-top: 0%;}
+.amiddboxtbott1content2{width:91%; height:85%; margin-left: 4.8%; margin-top: 1%;}
 .amiddboxtbott2{background:url(../img/amiddboxtbott2.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; float: right; width:49%; height:91.8%; margin-right: .9%;}
-.amiddboxtbott2content{width:91.8%; height:86%;  margin-left: 4.4%; margin-top: 1.6%;}
-.arightboxtop{background:url(../img/arightboxtop.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:100%; height: 51.9%;}
+.amiddboxtbott2content{width:91.8%; height:85%;  margin-left: 4.4%; margin-top: 0%;}
+.arightboxtop{background:url(../img/arightboxtop.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:100%; height: 50%;}
 .arightboxbott{background:url(../img/arightboxbott.png);background-size: 100% 100%; background-repeat: no-repeat;background-position: top center; width:100%; height: 35%; margin-top: 3%}
 .arightboxbottcont{ width: 91%; margin-top: 1%; margin-left: 5%;height: 79%;}
 .arightboxbottcont2{ width: 90%; margin-top: 1.6%; margin-left: 5.3%;height: 85.5%;}
