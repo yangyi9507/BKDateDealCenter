@@ -4,9 +4,11 @@
     <meta charset="utf-8" http-equiv="Refresh" content="30;URL=http://127.0.0.1/pages/MachineStatus.html">
     <title>博科MES系统</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/show.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../Scripts/echarts.min.js" charset="utf-8"></script>
     <script src="../Scripts/jquery-3.2.0.min.js"></script>
+    <script src="../Scripts/show.js"></script>
     <style>
         table,
         tbody {
@@ -43,10 +45,12 @@
             width: 35%;
             font-size: 14px;
         }
+
         .th_bt {
             width: 20%;
             font-size: 14px;
         }
+
         .td_dd {
             width: 30%;
             font-size: 14px;
@@ -72,336 +76,413 @@
         }
     </style>
 </head>
-    <body style="background:url(../img/bggy.jpg);background-size:100% 100%">
-        <div class="wpbox">
-            <div class="bnt">
-                <div class="topbnt_left fl">
-                    <ul>
-                    </ul>
-                </div>
+<body style="background:url(../img/bggy.jpg);background-size:100% 100%">
 
+    <div id="loading">
+        <div id="loading_bg">
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
 
+    <div class="wpbox">
+        <div class="bnt">
+            <div class="topbnt_left fl">
+                <ul>
+                </ul>
             </div>
-            <!-- bnt end -->
-            <div class="left1">
-                <div style="text-align:center;color:white;margin-top:-20%;">
-                    <label style="font-size:14px;">倒计时：</label>
-                    <label style="font-size:16px; color:red;" id="offtime">30</label>
-                    <label style="font-size:14px;">秒，进入机加工页面 </label>
-                </div>
-                <div class="aleftboxtmidd">
-                    <h2 class="tith2" style="color:white;padding-top: 8%;">今日产品划分</h2>
-                    <div style="margin-top:2%; height: 85%;" id="aleftboxtmidd" class="aleftboxtmiddcont"></div>
-                </div>
-                <div class="aleftboxtbott">
-                    <h2 class="tith2" style="color:white;padding-top: 4%;">今日产品产量</h2>
 
-                    <div style="margin-top: 2%; height: 85%;" id="aleftboxtbott" class="aleftboxtbott_cont"></div>
-                </div>
-            </div>
-            <!--  left1 end -->
-            <div class="mrbox">
-                <div class="mrbox_topmidd" style="width: 69%;">
-                    <div class="amiddboxttop">
-                        <h2 class="tith2 pt1" style="color: White; padding-top: 0%; margin-top: 1.5%;">生产实时监控</h2>
-                        <div class="amiddboxttop_map" style="margin-top: 0%;">
-                            <table style="height: 12%;margin-left: 5%;  margin-bottom: 0%;width:98%;" class="table table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th class="td_dd">订单号</th>
-                                        <th class="td_xh">型号</th>
-                                        <th class="th_bt">库存数</th>
-                                        <th class="th_bt">当日入库</th>
-                                        <th class="th_bt">当日出库</th>
-                                        <th class="th_bt">目前缺货</th>
-                                        <th class="th_bt">在产数量</th>
-                                        <th class="th_bt">在途计划</th>
-                                    </tr>  
-                                </thead>
-                            </table>
-                            <div style="overflow-y:hidden; height: 100%; margin-left: 5%;" class="table table-condensed"
-                                 id="demo">
-                                <div id="marquePic1">
-                                </div>
-                                <div id="marquePic2" valign="top"></div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--  amiddboxttop end-->
-                    <div class="amidd_bott">
-                        <div class="amiddboxtbott1 fl">
-                            <h2 class="tith2 pt1" style="color:white;margin-top: 0;padding-top: 2%;">月产量</h2>
-                            <div id="amiddboxtbott1" class="amiddboxtbott1content"></div>
-                        </div>
-
-                        <div class="amiddboxtbott2 fl">
-                            <h2 class="tith2 pt1" style="color:white; margin-top: 0; padding-top: 2%;">月生产效率</h2>
-                            <div id="amiddboxtbott2" class="amiddboxtbott2content" ></div>
-                        </div>
-                    </div>
-                    <!-- amidd_bott end -->
-                </div>
-                <!-- mrbox_top end -->
-
-
-                <div class="mrbox_top_right" style="margin-top:1%">
-
-
-                    <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-40px;"> </div>
-                    <div class="arightboxtop">
-                        <h2 class="tith2" style="color:white; padding-top: 2.5%;">生产计划</h2>
-
-                        <div class="left2_table" style="height: 90%;margin-top:0%">
-                            <ul>
-                                <li>
-                                    <p class="fl">
-                                        <b>酶标仪</b><br>
-                                        在产126台，在途10台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-09-22</p>
-                                </li>
-                                <li class="bg">
-                                    <p class="fl">
-                                        <b>BK-200</b><br>
-                                        在产57台，在途200台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-09-22</p>
-                                </li>
-                                <li>
-                                    <p class="fl">
-                                        <b>BK-400</b><br>
-                                        在产160台，在途0台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-10-25</p>
-                                </li>
-                                <li class="bg">
-                                    <p class="fl">
-                                        <b>BK-600</b><br>
-                                        在产26台，在途50台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-10-25</p>
-                                </li>
-                                <li>
-                                    <p class="fl">
-                                        <b>PR48</b><br>
-                                        在产80台，在途100台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-10-25</p>
-                                </li>
-                                <li class="bg">
-                                    <p class="fl">
-                                        <b>BK-PR96</b><br>
-                                        在产2台，在途60台，<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2023-01-10</p>
-                                </li>
-                                <li>
-                                    <p class="fl">
-                                        <b>BK-PR48P</b><br>
-                                        在产45台，在途50台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-11-22</p>
-                                </li>
-                                <li class="bg">
-                                    <p class="fl">
-                                        <b>BK-RT1000</b><br>
-                                        在产60台，在途200台<br>
-                                    </p>
-                                    <p class="fr pt17">完成日期:2022-09-22</p>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="arightboxbott">
-                        <h2 class="tith2 " style="color:white;padding-top: 2.5%;">产品合格率(每日)</h2>
-
-                        <div id="arightboxbott" class="arightboxbottcont" style="height: 85%;"></div>
-                    </div>
-                </div>
-                <!-- mrbox_top_right end -->
-            </div>
 
         </div>
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('aleftboxtmidd'));
-            option = {
-                color: ['#1EA362', '#4d82d9', '#BF8FF3', '#F5A115', '#FFCD42', "#FFFF00", "#EF3D00"],
-                backgroundColor: 'rgba(1,202,217,.2)',  //#EF3D00
-                grid: {
-                    left: 10,
-                    right: 40,
-                    top: 20,
-                    bottom: 0,
-                    containLabel: true
-                },
-                calculable: true,
-                series: [
+        <!-- bnt end -->
+        <div class="left1">
+            <div style="text-align:center;color:white;margin-top:-20%;">
+                <label style="font-size:14px;">倒计时：</label>
+                <label style="font-size:16px; color:red;" id="offtime">30</label>
+                <label style="font-size:14px;">秒，进入机加工页面 </label>
+            </div>
+            <div class="aleftboxtmidd">
+                <h2 class="tith2" style="color:white;padding-top: 8%;">今日产品划分</h2>
+                <div style="margin-top:2%; height: 85%;" id="aleftboxtmidd" class="aleftboxtmiddcont"></div>
+            </div>
+            <div class="aleftboxtbott">
+                <h2 class="tith2" style="color:white;padding-top: 4%;">今日产品产量</h2>
 
-                    {
-                        name: '面积模式',
-                        type: 'pie',
-                        radius: [5, 45],
-                        center: ['50%', '50s%'],
-                        roseType: 'area',
-                      
-                        data: [
-                            { value: 5, name: 'BK-HS96' },
-                            { value: 10, name: 'BK10D' },
-                            { value: 15, name: 'BK-PR48' },
-                            { value: 25, name: 'BK-PR96' },
-                            { value: 25, name: 'BK-200' },
-                            { value: 25, name: 'BK-400' },
-                            { value: 25, name: 'BK-600' },
-                        ],
-                        labelLine: {
-                            normal: {
-                                length: 0.5
-                            }
-                        },
-                        itemStyle: {
-                            normal: {
-                                label: {
-                                    textStyle: {
-                                        fontSize: 10
-                                    }
-                                }
-                            }
-                        }
-                       
-                    }
-                ]
-            };
-            myChart.setOption(option);
-        </script>
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('aleftboxtbott'));
-            option = {
-                color: ['#7ecef4'],
-                backgroundColor: 'rgba(1,202,217,.2)',
-                grid: {
-                    left: 20,
-                    right: 20,
-                    top: 13,
-                    bottom: 6,
-                    containLabel: true
-                },
+                <div style="margin-top: 2%; height: 85%;" id="aleftboxtbott" class="aleftboxtbott_cont"></div>
+            </div>
+        </div>
+        <!--  left1 end -->
+        <div class="mrbox">
+            <div class="mrbox_topmidd" style="width: 69%;">
+                <div class="amiddboxttop">
+                    <h2 class="tith2 pt1" style="color: White; padding-top: 0%; margin-top: 1.5%;">生产实时监控</h2>
+                    <div class="amiddboxttop_map" style="margin-top: 0%;">
+                        <table style="height: 12%;margin-left: 5%;  margin-bottom: 0%;width:98%;" class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="td_dd">订单号</th>
+                                    <th class="td_xh">型号</th>
+                                    <th class="th_bt">库存数</th>
+                                    <th class="th_bt">当日入库</th>
+                                    <th class="th_bt">当日出库</th>
+                                    <th class="th_bt">目前缺货</th>
+                                    <th class="th_bt">在产数量</th>
+                                    <th class="th_bt">在途计划</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div style="overflow-y:hidden; height: 100%; margin-left: 5%;" class="table table-condensed"
+                             id="demo">
+                            <div id="marquePic1">
+                            </div>
+                            <div id="marquePic2" valign="top"></div>
+                        </div>
 
-                xAxis: {
-                    type: 'value',
-                    axisLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,.2)'
+                    </div>
+                </div>
+                <!--  amiddboxttop end-->
+                <div class="amidd_bott">
+                    <div class="amiddboxtbott1 fl">
+                        <h2 class="tith2 pt1" style="color:white;margin-top: 0;padding-top: 2%;">月产量</h2>
+                        <div id="amiddboxtbott1" class="amiddboxtbott1content"></div>
+                    </div>
+
+                    <div class="amiddboxtbott2 fl">
+                        <h2 class="tith2 pt1" style="color:white; margin-top: 0; padding-top: 2%;">月生产效率</h2>
+                        <div id="amiddboxtbott2" class="amiddboxtbott2content"></div>
+                    </div>
+                </div>
+                <!-- amidd_bott end -->
+            </div>
+            <!-- mrbox_top end -->
+
+
+            <div class="mrbox_top_right" style="margin-top:1%">
+
+
+                <div id="dateTime" style="text-align:center;color:white;font-size:20px;margin-top:-40px;"> </div>
+                <div class="arightboxtop">
+                    <h2 class="tith2" style="color:white; padding-top: 2.5%;">生产计划</h2>
+
+                    <div class="left2_table" style="height: 90%;margin-top:0%">
+                        <ul>
+                            <li>
+                                <p class="fl">
+                                    <b>酶标仪</b><br>
+                                    在产126台，在途10台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-09-22</p>
+                            </li>
+                            <li class="bg">
+                                <p class="fl">
+                                    <b>BK-200</b><br>
+                                    在产57台，在途200台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-09-22</p>
+                            </li>
+                            <li>
+                                <p class="fl">
+                                    <b>BK-400</b><br>
+                                    在产160台，在途0台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-10-25</p>
+                            </li>
+                            <li class="bg">
+                                <p class="fl">
+                                    <b>BK-600</b><br>
+                                    在产26台，在途50台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-10-25</p>
+                            </li>
+                            <li>
+                                <p class="fl">
+                                    <b>PR48</b><br>
+                                    在产80台，在途100台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-10-25</p>
+                            </li>
+                            <li class="bg">
+                                <p class="fl">
+                                    <b>BK-PR96</b><br>
+                                    在产2台，在途60台，<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2023-01-10</p>
+                            </li>
+                            <li>
+                                <p class="fl">
+                                    <b>BK-PR48P</b><br>
+                                    在产45台，在途50台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-11-22</p>
+                            </li>
+                            <li class="bg">
+                                <p class="fl">
+                                    <b>BK-RT1000</b><br>
+                                    在产60台，在途200台<br>
+                                </p>
+                                <p class="fr pt17">完成日期:2022-09-22</p>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="arightboxbott">
+                    <h2 class="tith2 " style="color:white;padding-top: 2.5%;">产品合格率(每日)</h2>
+
+                    <div id="arightboxbott" class="arightboxbottcont" style="height: 85%;"></div>
+                </div>
+            </div>
+            <!-- mrbox_top_right end -->
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('aleftboxtmidd'));
+        option = {
+            color: ['#1EA362', '#4d82d9', '#BF8FF3', '#F5A115', '#FFCD42', "#FFFF00", "#EF3D00"],
+            backgroundColor: 'rgba(1,202,217,.2)',  //#EF3D00
+            grid: {
+                left: 10,
+                right: 40,
+                top: 20,
+                bottom: 0,
+                containLabel: true
+            },
+            calculable: true,
+            series: [
+
+                {
+                    name: '面积模式',
+                    type: 'pie',
+                    radius: [5, 45],
+                    center: ['50%', '50s%'],
+                    roseType: 'area',
+
+                    data: [
+                        { value: 5, name: 'BK-HS96' },
+                        { value: 10, name: 'BK10D' },
+                        { value: 15, name: 'BK-PR48' },
+                        { value: 25, name: 'BK-PR96' },
+                        { value: 25, name: 'BK-200' },
+                        { value: 25, name: 'BK-400' },
+                        { value: 25, name: 'BK-600' },
+                    ],
+                    labelLine: {
+                        normal: {
+                            length: 0.5
                         }
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,0)'
-                        }
-                    },
-                    axisLabel: {
-                        color: "rgba(255,255,255,0)"
-                    },
-                    boundaryGap: [0, 0.01]
-                },
-                yAxis: {
-                    type: 'category',
-                    axisLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,.5)'
-                        }
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,.1)'
-                        }
-                    },
-                    axisLabel: {
-                        color: "rgba(255,255,255,.5)"
                     },
                     itemStyle: {
                         normal: {
                             label: {
                                 textStyle: {
-                                    fontSize: 5
+                                    fontSize: 10
                                 }
                             }
                         }
-                    },
-                    data: ['BK10D(酶标仪)', 'BK-HS96(全自动核酸)', 'BK-PR48(分杯)', 'BK-PR96(分杯)', 'BK200(生化仪)', 'BK400(生化仪)', 'BK600(生化仪)']
-                    
+                    }
+
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('aleftboxtbott'));
+        option = {
+            color: ['#7ecef4'],
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left: 20,
+                right: 20,
+                top: 13,
+                bottom: 6,
+                containLabel: true
+            },
+
+            xAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.2)'
+                    }
                 },
-                series: [
-                    {
-                        name: '2022年',
-                        type: 'bar',
-                        barWidth: 30,
-                        data: [2, 29, 7, 4, 6, 4, 2],
-                        itemStyle: {
-                            normal: {
-                                color: new echarts.graphic.LinearGradient(
-                                    1, 0, 0, 1,
-                                    [
-                                        { offset: 0, color: 'rgba(230,253,139,.7)' },
-                                        { offset: 1, color: 'rgba(41,220,205,.7)' }
-                                    ]
-                                ),
-                                label:
-                                {
-                                    show: true, //开启显示
-                                    position: 'right', //在上方显示
-                                    textStyle: { //数值样式
-                                        color: 'white',
-                                        fontSize: 14
-                                    }
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,0)'
+                    }
+                },
+                axisLabel: {
+                    color: "rgba(255,255,255,0)"
+                },
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.5)'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel: {
+                    color: "rgba(255,255,255,.5)"
+                },
+                itemStyle: {
+                    normal: {
+                        label: {
+                            textStyle: {
+                                fontSize: 5
+                            }
+                        }
+                    }
+                },
+                data: ['BK10D(酶标仪)', 'BK-HS96(全自动核酸)', 'BK-PR48(分杯)', 'BK-PR96(分杯)', 'BK200(生化仪)', 'BK400(生化仪)', 'BK600(生化仪)']
+
+            },
+            series: [
+                {
+                    name: '2022年',
+                    type: 'bar',
+                    barWidth: 30,
+                    data: [2, 29, 7, 4, 6, 4, 2],
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                1, 0, 0, 1,
+                                [
+                                    { offset: 0, color: 'rgba(230,253,139,.7)' },
+                                    { offset: 1, color: 'rgba(41,220,205,.7)' }
+                                ]
+                            ),
+                            label:
+                            {
+                                show: true, //开启显示
+                                position: 'right', //在上方显示
+                                textStyle: { //数值样式
+                                    color: 'white',
+                                    fontSize: 14
                                 }
-                            },
+                            }
                         },
+                    },
+
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('amiddboxtbott1'));
+        var option = {
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left: 40,
+                right: 40,
+                top: 50,
+                bottom: 70
+            },
+            title: {
+                top: 5,
+                left: 20,
+                textStyle: {
+                    fontSize: 10,
+                    color: 'rgba(255,255,255,.6)'
+                },
+            },
+
+            xAxis: {
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.2)'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel: {
+                    color: "rgba(255,255,255,.7)",
+                    interval: 0,
+                    rotate: 60
+                },
+                data: ['600(生化仪)', '400(生化仪)', '200(生化仪)', 'PR96(分杯)', 'PR48(分杯)', 'HS96(全自动核酸)', '10D(酶标仪)']  // x轴数据。
+            },
+            yAxis: {
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.2)'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,.1)'
+                    }
+                },
+                axisLabel: {
+                    color: "rgba(255,255,255,.7)"
+                },
+                scale: false
+
+            },
+            series: [{
+                name: '',  // 柱状图名字，位于柱状图的正上方。
+                type: 'bar',  // 柱状图。
+                data: [8, 48, 89, 46, 79, 489, 20],  // 此处数据，与x轴的数据一一对应。
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true, //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: { //数值样式
+                                color: 'white',
+                                fontSize: 16
+                            }
+                        },
+                        color: '#4ad2ff'
 
                     }
-                ]
-            };
-            myChart.setOption(option);
-        </script>
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('amiddboxtbott1'));
-            var option = {
-                backgroundColor: 'rgba(1,202,217,.2)',
-                grid: {
-                    left: 40,
-                    right: 40,
-                    top: 50,
-                    bottom: 70                },
-                title: {
-                    top: 5,
-                    left: 20,
-                    textStyle: {
-                        fontSize: 10,
-                        color: 'rgba(255,255,255,.6)'
-                    },
-                },
+                }
+            }]
+        };
+        myChart.setOption(option);
+    </script>
 
-                xAxis: {
-                    axisLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,.2)'
-                        }
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,.1)'
-                        }
-                    },
-                    axisLabel: {
-                        color: "rgba(255,255,255,.7)",
-                        interval: 0,
-                        rotate:60
-                    },
-                    data: ['600(生化仪)', '400(生化仪)', '200(生化仪)', 'PR96(分杯)', 'PR48(分杯)', 'HS96(全自动核酸)', '10D(酶标仪)']  // x轴数据。
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('amiddboxtbott2'));
+        option = {
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left: 60,
+                right: 60,
+                top: 50,
+                bottom: 40
+            },
+
+            toolbox: {
+                feature: {
+                    dataView: { show: true, readOnly: false },
+                    magicType: { show: true, type: ['line', 'bar'] },
+                    restore: { show: true },
+                    saveAsImage: { show: true }
+                }
+            },
+            legend: {
+                top: 10,
+                textStyle: {
+                    fontSize: 10,
+                    color: 'rgba(255,255,255,.7)'
                 },
-                yAxis: {
+                data: ['上月', '本月', '同比增速']
+            },
+            xAxis: [
+                {
+                    type: 'category',
                     axisLine: {
                         lineStyle: {
                             color: 'rgba(255,255,255,.2)'
@@ -415,362 +496,293 @@
                     axisLabel: {
                         color: "rgba(255,255,255,.7)"
                     },
-                    scale: false
 
+                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '',
+                    min: 0,
+                    max: 200,
+                    interval: 20,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.3)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.01)'
+                        }
+                    },
+
+                    axisLabel: {
+                        formatter: '{value} %'
+                    }
                 },
-                series: [{
-                    name: '',  // 柱状图名字，位于柱状图的正上方。
-                    type: 'bar',  // 柱状图。
-                    data: [8, 48, 89, 46, 79, 489, 20],  // 此处数据，与x轴的数据一一对应。
+                {
+                    type: 'value',
+                    name: '',
+                    min: -20,
+                    max: 30,
+                    interval: 10,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.3)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel: {
+                        formatter: '{value} %'
+                    }
+                }
+            ],
+            series: [
+
+                {
+                    name: '上月',
+                    type: 'bar',
                     itemStyle: {
                         normal: {
-                            label: {
-                                show: true, //开启显示
-                                position: 'top', //在上方显示
-                                textStyle: { //数值样式
-                                    color: 'white',
-                                    fontSize: 16
-                                }
-                            },
-                            color: '#4ad2ff'
-
-                        }
-                    }
-                }]
-            };
-            myChart.setOption(option);
-        </script>
-
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('amiddboxtbott2'));
-            option = {
-                backgroundColor: 'rgba(1,202,217,.2)',
-                grid: {
-                    left: 60,
-                    right: 60,
-                    top: 50,
-                    bottom: 40
-                },
-
-                toolbox: {
-                    feature: {
-                        dataView: { show: true, readOnly: false },
-                        magicType: { show: true, type: ['line', 'bar'] },
-                        restore: { show: true },
-                        saveAsImage: { show: true }
-                    }
-                },
-                legend: {
-                    top: 10,
-                    textStyle: {
-                        fontSize: 10,
-                        color: 'rgba(255,255,255,.7)'
-                    },
-                    data: ['上月', '本月', '同比增速']
-                },
-                xAxis: [
-                    {
-                        type: 'category',
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.2)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.1)'
-                            }
-                        },
-                        axisLabel: {
-                            color: "rgba(255,255,255,.7)"
-                        },
-
-                        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-                        axisPointer: {
-                            type: 'shadow'
-                        }
-                    }
-                ],
-                yAxis: [
-                    {
-                        type: 'value',
-                        name: '',
-                        min: 0,
-                        max: 200,
-                        interval: 20,
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.3)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.01)'
-                            }
-                        },
-
-                        axisLabel: {
-                            formatter: '{value} %'
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: '#b266ff' },
+                                    { offset: 1, color: '#121b87' }
+                                ]
+                            )
                         }
                     },
-                    {
-                        type: 'value',
-                        name: '',
-                        min: -20,
-                        max: 30,
-                        interval: 10,
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.3)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.1)'
-                            }
-                        },
-                        axisLabel: {
-                            formatter: '{value} %'
+                    data: [103.8, 115.3, 103.1, 109.5, 110.9, 106.3, 0, 99.2, 121.4, 105.7, 121.1, 110, 108.5, 0, 97.3, 120.6, 101.3, 111.4, 114.3, 131.2, 0, 115.3, 103.7, 123.1, 102.2, 111.2, 103.6, 0, 106.5, 101.1, 99.3]
+
+                },
+                {
+                    name: '本月',
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: '#00f0ff' },
+                                    { offset: 1, color: '#032a72' }
+                                ]
+                            )
                         }
-                    }
-                ],
-                series: [
-
-                    {
-                        name: '上月',
-                        type: 'bar',
-                        itemStyle: {
-                            normal: {
-                                color: new echarts.graphic.LinearGradient(
-                                    0, 0, 0, 1,
-                                    [
-                                        { offset: 0, color: '#b266ff' },
-                                        { offset: 1, color: '#121b87' }
-                                    ]
-                                )
-                            }
-                        },
-                        data: [103.8, 115.3, 103.1, 109.5, 110.9, 106.3, 0, 99.2, 121.4, 105.7, 121.1, 110, 108.5, 0, 97.3, 120.6, 101.3, 111.4, 114.3, 131.2, 0, 115.3, 103.7, 123.1, 102.2, 111.2, 103.6, 0, 106.5, 101.1, 99.3]
-
                     },
-                    {
-                        name: '本月',
-                        type: 'bar',
-                        itemStyle: {
-                            normal: {
-                                color: new echarts.graphic.LinearGradient(
-                                    0, 0, 0, 1,
-                                    [
-                                        { offset: 0, color: '#00f0ff' },
-                                        { offset: 1, color: '#032a72' }
-                                    ]
-                                )
-                            }
-                        },
-                        data: [113.8, 112.3, 123.1, 106.2, 110.7, 88.5, 0, 106.2, 113.2, 106.9, 113, 106.9, 91.5, 0, 102.3, 123, 135.3, 126.9, 142.3, 115.1, 0, 102.5, 111.2, 113.2, 108.6, 109.2, 121.3, 0, 112.5, 121.1, 101.3]
+                    data: [113.8, 112.3, 123.1, 106.2, 110.7, 88.5, 0, 106.2, 113.2, 106.9, 113, 106.9, 91.5, 0, 102.3, 123, 135.3, 126.9, 142.3, 115.1, 0, 102.5, 111.2, 113.2, 108.6, 109.2, 121.3, 0, 112.5, 121.1, 101.3]
 
-                    },
-                    {
-                        name: '同比增速',
-                        type: 'line',
-                        itemStyle: {
-                            normal: {
-                                color: new echarts.graphic.LinearGradient(
-                                    0, 0, 0, 1,
-                                    [
-                                        { offset: 0, color: '#fffb34' },
-                                        { offset: 1, color: '#fffb34' }
-                                    ]
-                                )
-                            }
-                        },
-                        yAxisIndex: 1,
-                        data: [10, 8, 7.5, 10, 12, 11, 11.5, 13, 11.5, 10.4, 9.5, 10.3, 11, 12, 12.4, 10.5, 11, 15.5, 13, 13.1, 10, 11.5, 7.5, 10, 9.5, 11.5, 12, 12.5, 14, 12, 12.5]
-
-                    }
-                ]
-            };
-            myChart.setOption(option);
-        </script>
-        <script type="text/javascript">
-            // 基于准备好的dom，初始化echarts实例
-            var line = echarts.init(document.getElementById('arightboxbott'));
-            // 指定图表的配置项和数据
-            lineOption = {
-                backgroundColor: 'rgba(1,202,217,.2)',
-                grid: {
-                    left: '5%',
-                    right: '8%',
-                    bottom: '7%',
-                    top: '8%',
-                    containLabel: true
                 },
-                toolbox: {
-                    feature: {
-                        saveAsImage: {}
-                    }
-                },
-                // 标题
-                title: {
-                    text: ''
-                },
-                // 图例
-                tooltip: {
-                    show: true,
-                    trigger: "axis",
-                    backgroundColor: "#1677FF",
-                    // {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
-                    formatter: "{b}：{c}%"
-                },
-                xAxis:
-                    [{
-                        type: 'category',
-                        boundaryGap: false,
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.2)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.1)'
-                            }
-                        },
-                        axisLabel: {
-                            color: "rgba(255,255,255,.7)",
-
-                        },
-
-                        data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25', '27', '29', '31'],
-                        axisPointer: {
-                            type: 'shadow'
-                        }
-                    }],
-                yAxis: [
-                    {
-                        type: 'value',
-                        name: '',
-                        min: 80,
-                        max: 100,
-                        interval: 4,
-                        axisLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.2)'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: 'rgba(255,255,255,.1)'
-                            }
-                        },
-                        axisLabel: {
-                            color: "rgba(255,255,255,.7)"
-                        },
-                    }
-                ],
-                series: [{
-                    name: '合格率',
-                    data: [99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.7, 99.9],
+                {
+                    name: '同比增速',
                     type: 'line',
-                    smooth: true
-                }]
-            };
-            line.setOption(lineOption);
-        </script>
-
-        <script type="text/javascript">
-
-            //纵向滚动 需要设置div的高度
-            var speed = 40;
-            var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
-            marquePic2.innerHTML = marquePic1.innerHTML;
-            function Marquee() {
-                //var scrollHeightValue = document.getElementById('demo').scrollHeight;//获取div#demo滚动条高度值
-
-                if (oldvalue == marquePic1.scrollHeight) {
-                    demo.scrollTop = 0;
-                    oldvalue = 0;
-                    $.ajax({
-                        url: '../AjaxMain.aspx?Action=GetData',//ajax的请求路径
-                        type: 'get',//ajax发送请求的方式
-                        dataType: 'json',
-                        async: false,
-                        success: function (data) {
-                            var RowsArr = data.Rows;
-                            if (RowsArr.length > 0) {
-                                var str = "";
-                                str += "<table style=\"padding-top:0%; height:100%;\" id=\"t_body\">";
-                                for (var i = 0; i < RowsArr.length; i++) {
-                                    //RowsArr[i].ORDER_NUM 订单编号;  RowsArr[i].MODEL_TYPE  型号
-                                    //RowsArr[i].STOCK_NUM 库存数;  RowsArr[i].STORAGE_NUM 当日入库数
-                                    //RowsArr[i].OUTBOUND_NUM 当日出库数;  RowsArr[i].SHORAGE_NUM 目前缺货数
-                                    //RowsArr[i].PRODUCTION_NUM 在产数量;  RowsArr[i].PLAN_NUM 在途计划
-                                    //flg_delivered   是否待检标志  flg_finish  是否完成标志  flg_emergency  是否紧急标志
-
-                                    var color = "White";
-                                    if (RowsArr[i].flg_delivered == 1) {
-                                        color = "orange";
-                                    }
-                                    if (RowsArr[i].flg_emergency == 1) {
-                                        color = "red";
-                                    }
-                                    if (RowsArr[i].flg_finish == 1) {
-                                        color = "green";
-                                    }
-
-                                    str += "<tr>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STOCK_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STORAGE_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].OUTBOUND_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].SHORAGE_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PRODUCTION_NUM + "</td>";
-                                    str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PLAN_NUM + "</td>";
-                                    str += "</tr>";
-                                }
-                                str += "</table>";
-
-                                document.getElementById("marquePic1").innerHTML = str;
-                                document.getElementById("marquePic2").innerHTML = str;
-                            }
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: '#fffb34' },
+                                    { offset: 1, color: '#fffb34' }
+                                ]
+                            )
                         }
-                    });
-                } else {
-                    oldvalue = demo.scrollTop;
-                    demo.scrollTop++;
-                    if (demo.scrollTop == oldvalue) {
-                        oldvalue = marquePic1.scrollHeight;
+                    },
+                    yAxisIndex: 1,
+                    data: [10, 8, 7.5, 10, 12, 11, 11.5, 13, 11.5, 10.4, 9.5, 10.3, 11, 12, 12.4, 10.5, 11, 15.5, 13, 13.1, 10, 11.5, 7.5, 10, 9.5, 11.5, 12, 12.5, 14, 12, 12.5]
+
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var line = echarts.init(document.getElementById('arightboxbott'));
+        // 指定图表的配置项和数据
+        lineOption = {
+            backgroundColor: 'rgba(1,202,217,.2)',
+            grid: {
+                left: '5%',
+                right: '8%',
+                bottom: '7%',
+                top: '8%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            // 标题
+            title: {
+                text: ''
+            },
+            // 图例
+            tooltip: {
+                show: true,
+                trigger: "axis",
+                backgroundColor: "#1677FF",
+                // {a}（系列名称），{b}（类目值），{c}（数值）, {d}（无）
+                formatter: "{b}：{c}%"
+            },
+            xAxis:
+                [{
+                    type: 'category',
+                    boundaryGap: false,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.2)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel: {
+                        color: "rgba(255,255,255,.7)",
+
+                    },
+
+                    data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25', '27', '29', '31'],
+                    axisPointer: {
+                        type: 'shadow'
                     }
+                }],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '',
+                    min: 80,
+                    max: 100,
+                    interval: 4,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.2)'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel: {
+                        color: "rgba(255,255,255,.7)"
+                    },
+                }
+            ],
+            series: [{
+                name: '合格率',
+                data: [99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.5, 99.2, 99.3, 99, 100, 99.7, 99.9, 99.7, 99.9],
+                type: 'line',
+                smooth: true
+            }]
+        };
+        line.setOption(lineOption);
+    </script>
+
+    <script type="text/javascript">
+
+        //纵向滚动 需要设置div的高度
+        var speed = 40;
+        var oldvalue = 0; //滚动条初始值   如果初始值和变化后的数值一样证明到达了滚动条的最大数值
+        marquePic2.innerHTML = marquePic1.innerHTML;
+        function Marquee() {
+            //var scrollHeightValue = document.getElementById('demo').scrollHeight;//获取div#demo滚动条高度值
+
+            if (oldvalue == marquePic1.scrollHeight) {
+                demo.scrollTop = 0;
+                oldvalue = 0;
+                $.ajax({
+                    url: '../AjaxMain.aspx?Action=GetData',//ajax的请求路径
+                    type: 'get',//ajax发送请求的方式
+                    dataType: 'json',
+                    async: true,
+                    success: function (data) {
+                        var RowsArr = data.Rows;
+                        if (RowsArr.length > 0) {
+                            var str = "";
+                            str += "<table style=\"padding-top:0%; height:100%;\" id=\"t_body\">";
+                            for (var i = 0; i < RowsArr.length; i++) {
+                                //RowsArr[i].ORDER_NUM 订单编号;  RowsArr[i].MODEL_TYPE  型号
+                                //RowsArr[i].STOCK_NUM 库存数;  RowsArr[i].STORAGE_NUM 当日入库数
+                                //RowsArr[i].OUTBOUND_NUM 当日出库数;  RowsArr[i].SHORAGE_NUM 目前缺货数
+                                //RowsArr[i].PRODUCTION_NUM 在产数量;  RowsArr[i].PLAN_NUM 在途计划
+                                //flg_delivered   是否待检标志  flg_finish  是否完成标志  flg_emergency  是否紧急标志
+
+                                var color = "White";
+                                if (RowsArr[i].flg_delivered == 1) {
+                                    color = "orange";
+                                }
+                                if (RowsArr[i].flg_emergency == 1) {
+                                    color = "red";
+                                }
+                                if (RowsArr[i].flg_finish == 1) {
+                                    color = "green";
+                                }
+
+                                str += "<tr>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_dd\">" + RowsArr[i].ORDER_NUM + "</td>"
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"td_xh\">" + RowsArr[i].MODEL_TYPE + "</td>"
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STOCK_NUM + "</td>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].STORAGE_NUM + "</td>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].OUTBOUND_NUM + "</td>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].SHORAGE_NUM + "</td>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PRODUCTION_NUM + "</td>";
+                                str += "<td style=\"color: " + color + ";text-align: left;\" class=\"th_bt\">" + RowsArr[i].PLAN_NUM + "</td>";
+                                str += "</tr>";
+                            }
+                            str += "</table>";
+
+                            document.getElementById("marquePic1").innerHTML = str;
+                            document.getElementById("marquePic2").innerHTML = str;
+                        }
+                    }
+                });
+            } else {
+                oldvalue = demo.scrollTop;
+                demo.scrollTop++;
+                if (demo.scrollTop == oldvalue) {
+                    oldvalue = marquePic1.scrollHeight;
                 }
             }
-            var MyMar = setInterval(Marquee, speed);
-            var offtimeInt = 30;
-            Date.prototype.format = function (fmt) {
+        }
+        var MyMar = setInterval(Marquee, speed);
+        var offtimeInt = 30;
+        Date.prototype.format = function (fmt) {
 
-                var o = {
-                    "y+": this.getFullYear, //年
-                    "M+": this.getMonth() + 1, //月份
-                    "d+": this.getDate(), //日
-                    "h+": this.getHours(), //小时
-                    "m+": this.getMinutes(), //分
-                    "s+": this.getSeconds() //秒
-                };
-                if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-                for (var k in o)
-                    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-                offtimeInt = offtimeInt - 1;
-                document.getElementById('offtime').innerHTML = offtimeInt;
-                return fmt;
+            var o = {
+                "y+": this.getFullYear, //年
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds() //秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            offtimeInt = offtimeInt - 1;
+            document.getElementById('offtime').innerHTML = offtimeInt;
+            return fmt;
+        }
+        setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+        function change(table) {
+            var row = table.insertRow(table.rows.length);
+            for (j = 0; j < table.row.length; j++) {
+
             }
-            setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
-            function change(table) {
-                var row = table.insertRow(table.rows.length);
-                for (j = 0; j < table.row.length; j++) {
+        }
+    </script>
 
-                }
-            }
-        </script>
-
-    </body>
+</body>
 </html>
