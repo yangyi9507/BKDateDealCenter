@@ -1,5 +1,5 @@
 var autoplay = true;
-var autoplay_Delay = 5000; // ms
+var autoplay_Delay = 30000; // ms
 var autoplayId;
 var intervalId;
 
