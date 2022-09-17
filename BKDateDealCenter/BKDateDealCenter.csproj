@@ -75,6 +75,7 @@
     <Content Include="AjaxMain.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\show.css" />
+    <Content Include="css\slider.css" />
     <Content Include="css\style-100.css" />
     <Content Include="css\style.css" />
     <Content Include="file\20220806_yy_创建数据记录表.sql" />
@@ -144,6 +145,7 @@
     <Content Include="pages\analysis.html" />
     <Content Include="pages\MachineStatus.html" />
     <Content Include="pages\monoblock.html" />
+    <Content Include="pages\slider.html" />
     <Content Include="QCMain.aspx" />
     <Content Include="Scripts\base.js" />
     <Content Include="Scripts\bmap.min.js" />
@@ -192,6 +194,7 @@
     <Content Include="Scripts\ligerui-tree.css" />
     <Content Include="Scripts\ligerWindow.js" />
     <Content Include="Scripts\show.js" />
+    <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\world.js" />
     <Content Include="Web.config" />
   </ItemGroup>
