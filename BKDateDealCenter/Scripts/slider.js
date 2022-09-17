@@ -12,8 +12,8 @@ var slider_item_width;
 var curIndex = 0;
 
 window.onload = function () {
-    initElement();
-    initEvent();
+    initElement();//初始化空间
+    initEvent();//初始化事件
     if (autoplay) {
         startAnimation(slider_item_container);
     }
