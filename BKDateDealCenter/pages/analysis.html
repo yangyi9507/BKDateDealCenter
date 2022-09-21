@@ -260,13 +260,20 @@
                     roseType: 'area',
 
                     data: [
-                        { value: 5, name: 'BK-HS96' },
-                        { value: 10, name: 'BK10D' },
-                        { value: 15, name: 'BK-PR48' },
-                        { value: 25, name: 'BK-PR96' },
-                        { value: 25, name: 'BK-200' },
-                        { value: 25, name: 'BK-400' },
-                        { value: 25, name: 'BK-600' },
+                        { value: 18, name: '全自动生化分析仪' },
+                        { value: 30, name: '电解质分析仪' },
+                        { value: 12, name: '血细胞分析仪' },
+                        { value: 8, name: '酶标仪' },
+                        { value: 3, name: '洗板机' },
+                        { value: 4, name: '医用离心机' },
+                        { value: 28, name: '旋涡混匀器' },
+                        { value: 8, name: '拧盖机' },
+                        { value: 6, name: '干式恒温器' },
+                        { value: 7, name: '实验室纯水机' },
+                        { value: 10, name: '全自动核酸提取仪' },
+                        { value: 18, name: '消毒机器人' },
+                        { value: 38, name: '分杯处理系统' }
+
                     ],
                     labelLine: {
                         normal: {
@@ -342,15 +349,15 @@
                         }
                     }
                 },
-                data: ['BK10D(酶标仪)', 'BK-HS96(全自动核酸)', 'BK-PR48(分杯)', 'BK-PR96(分杯)', 'BK200(生化仪)', 'BK400(生化仪)', 'BK600(生化仪)']
+                data: ['BK-200', 'BK-280', 'BK-400', 'BK-600', 'BK-1200', 'BKE-A', 'BKE-B', 'BKE-C', 'BKE-D', 'BK-3100', 'EL10C', 'BIOBASE-Silver', 'BK-9622', 'BL-4', 'BK-VX', 'BK-AC10', 'BK-HW100', 'SCSJ-II', 'BK-HS32', 'BK-HS96', 'BK-RT1000', 'BK-PR48', 'BK-PR32', 'BK-PR48P','BK-PR96']
 
             },
             series: [
                 {
                     name: '2022年',
                     type: 'bar',
-                    barWidth: 30,
-                    data: [2, 29, 7, 4, 6, 4, 2],
+                    barWidth: 5,
+                    data: [5, 3, 1, 2, 2, 4, 16, 2, 8, 12, 8, 5, 3, 4, 28, 8, 6, 7, 4, 3, 18, 24, 2, 2, 10],
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(
@@ -391,7 +398,7 @@
                 top: 5,
                 left: 20,
                 textStyle: {
-                    fontSize: 10,
+                    fontSize: 8,
                     color: 'rgba(255,255,255,.6)'
                 },
             },
@@ -410,9 +417,12 @@
                 axisLabel: {
                     color: "rgba(255,255,255,.7)",
                     interval: 0,
-                    rotate: 60
+                    rotate: 60,
+                    textStyle: {
+                        fontSize: '8'
+                    }
                 },
-                data: ['600(生化仪)', '400(生化仪)', '200(生化仪)', 'PR96(分杯)', 'PR48(分杯)', 'HS96(全自动核酸)', '10D(酶标仪)']  // x轴数据。
+                data: ['BK-200', 'BK-280', 'BK-400', 'BK-600', 'BK-1200', 'BKE-A', 'BKE-B', 'BKE-C', 'BKE-D', 'BK-3100', 'EL10C', 'BIOBASE-Silver', 'BK-9622', 'BL—4', 'BK-VX1', 'BK-VX2', 'BK-AC10', 'BK-HW100D', 'BK-HW100', 'BK-HW100G', 'SCSJ-I', 'SCSJ-II', 'SCSJ-II-60L', 'SCSJ-II-80L', 'BK-HS32', 'BK-HS96', 'BK-AutoHS96', 'BK-RT1000', 'BK-PR48', 'BK-PR32', 'BK-PR48P', 'BK-PR96']// x轴数据。
             },
             yAxis: {
                 axisLine: {
@@ -434,7 +444,8 @@
             series: [{
                 name: '',  // 柱状图名字，位于柱状图的正上方。
                 type: 'bar',  // 柱状图。
-                data: [8, 48, 89, 46, 79, 489, 20],  // 此处数据，与x轴的数据一一对应。
+                barWidth: 8,
+                data: [150, 60, 30, 60, 30, 30, 30, 30, 30, 100, 120, 150, 90, 50, 180, 180, 240, 50, 9, 18, 20, 30, 30, 50, 50, 90, 40, 60, 60, 20, 50, 30],  // 此处数据，与x轴的数据一一对应。
                 itemStyle: {
                     normal: {
                         label: {
@@ -442,11 +453,10 @@
                             position: 'top', //在上方显示
                             textStyle: { //数值样式
                                 color: 'white',
-                                fontSize: 16
+                                fontSize: 9
                             }
                         },
                         color: '#4ad2ff'
-
                     }
                 }
             }]
