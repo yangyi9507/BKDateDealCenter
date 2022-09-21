@@ -224,6 +224,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="file\产能.xlsx" />
+    <Content Include="file\固定资产栏.xlsx" />
+    <Content Include="file\机加工排产计划.xlsx" />
+    <Content Include="file\今日产品划分+今日产品产量.xlsx" />
+    <Content Include="file\月产量+月效率对比.xlsx" />
+    <Content Include="file\生产监控+生产计划.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
