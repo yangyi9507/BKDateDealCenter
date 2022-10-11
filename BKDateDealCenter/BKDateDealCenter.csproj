@@ -46,6 +46,9 @@
     <Reference Include="comm">
       <HintPath>..\comm\bin\Debug\comm.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Model, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -230,6 +233,7 @@
     <Content Include="file\今日产品划分+今日产品产量.xlsx" />
     <Content Include="file\月产量+月效率对比.xlsx" />
     <Content Include="file\生产监控+生产计划.xlsx" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
